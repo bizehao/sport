@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools">
+
+    <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center">
+
+        <TextView
+                android:id="@+id/ttx"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="我是运动界面"
+                android:textSize="25sp"
+                android:gravity="center"/>
+
+        <Button
+                android:id="@+id/my_button1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:text="增添"/>
+
+        <Button
+                android:id="@+id/my_button2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:text="查询"/>
+
+    </LinearLayout>
+
+</layout>
