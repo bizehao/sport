@@ -7,6 +7,8 @@ import timber.log.Timber
 
 class SportApplication : Application() {
 
+    var m = 0;
+
     override fun onCreate() {
         super.onCreate()
         context = this

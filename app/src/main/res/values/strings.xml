@@ -3,37 +3,77 @@
     <!-- Resources that do not require translation -->
     <string name="app_name" translatable="false">Sport</string>
     <string name="navigation_drawer_header_title" translatable="false">Sunflower</string>
+    <string name="my_garden_title">主页</string>
+    <string name="plant_list_title">数据</string>
+    <string name="setting_title">设置</string>
+    <string name="navigation_drawer_header_content_description">头像</string>
 
-    <!-- Translatable resources -->
-    <string name="menu_filter_by_grow_zone" translation_description="The label for the menu item to filter the displayed plants by grow zone.">Filter by grow zone</string>
-    <string name="plant_detail_image_content_description" translation_description="Content description for the header / hero image that is show at the top of the plant detail screen.">Image of plant</string>
-    <string name="my_garden_title" translation_description="Title for the 'My garden' screen where the user can see the list of plants that have been added to their garden.">My garden</string>
-    <string name="plant_list_title" translation_description="Title for the plant list screen where the user can see a list of plants available to add to their garden.">Plant list</string>
-    <string name="plant_details_title" translation_description="Title for the plant details screen where the user can see the details for a specific plant.">Plant details</string>
-    <string name="navigation_drawer_header_content_description" translation_description="Content description for the image that is shown at the top of the navigation drawer.">Navigation drawer header logo</string>
-    <string name="added_plant_to_garden" translation_description="Confirmation text that is shown when a user adds a plant to their graden.">Added plant to garden</string>
-    <string name="garden_empty" translation_description="Text that is shown on the 'My Garden' screen when no plants have been added to the user's garden">Your garden is empty</string>
-    <string name="planted_date" translation_description="Text with placeholders that indicates when the plant was planted. Example: 'Sunflower planted on May 24, 2018'.">%1$s planted on %2$s</string>
-    <string name="menu_item_share_plant" translation_description="The label for the Share menu item">Share</string>
-    <string name="share_text_plant" translation_description="The default messaged used when sharing a plant on SNS, etc.">Check out the %s plant in the Android Sunflower app</string>
-
-    <!-- String plurals and their related prefix / suffix strings -->
-    <string name="watering_needs_prefix" translation_description="Prefix for the text describing how often a plant should be watered. Used in combination with watering_needs_suffix.">Watering needs:</string>
-    <plurals name="watering_needs_suffix">
-        <item quantity="one" translation_description="Suffix for the text describing how often a plant should be watered, singular. Used in combination with watering_needs_prefix: 'Watering needs: every day'.">every day</item>
-        <item quantity="other" translation_description="Suffix for the text describing how often a plant should be watered, plural. Used in combination with watering_needs_prefix: 'Watering needs: every 8 days'.">every %d days</item>
-    </plurals>
-
-    <string name="watering_next_prefix" translation_description="Prefix for the text indicating when the plant should next be watered. Used in combination with watering_next_suffix.">Last watered on %s</string>
-    <plurals name="watering_next_suffix">
-        <item quantity="one" translation_description="Suffix for the text indicating when the the plant should next be watered, singular. Used in combination with watering_next_prefix: 'Last watered on May 24, 2018 - water tomorrow.'.">water tomorrow.</item>
-        <item quantity="other" translation_description="Suffix for the text indicating when the the plant should next be watered, plural. Used in combination with watering_next_prefix: 'Last watered on May 24, 2018 - water in 8 days.'.">water in %d days.</item>
-    </plurals>
-    <string name="water_date" translatable="false">%1$s - %2$s</string>
-
-    <!-- Accessibility -->
-    <string name="a11y_plant_item_image" translation_description="Accessibility text for each of the plant images shown in the 'My garden' and 'Plant list' screens.">Picture of plant</string>
-
+    <!-- 登录注册启动页 -->
     <string name="image_tips">启动页图标</string>
     <string name="transition_logo_splash" translatable="false">transition_logo_splash</string>
+    <string name="phone_number">手机号</string>
+    <string name="verify_code">验证码</string>
+    <string name="fetch_vcode">获取验证码</string>
+    <string name="login">登录</string>
+    <string name="share_fun_with_world">乐趣就要和世界分享</string>
+
+    <!-- 设置 -->
+    <string name="title_gif_settings">GIF设置</string>
+    <string name="key_gif_play_control">gif_play_control</string>
+    <string name="title_gif_play_control">GIF播放控制</string>
+    <string name="key_alert_for_big_gif">alert_for_big_gif</string>
+    <string name="title_alert_when_play_big_gif_using_roaming">流量播放大图提醒</string>
+    <string name="summary_alert_when_play_big_gif_using_roaming">使用手机流量播放较大GIF图时进行提醒</string>
+    <string name="key_auto_refresh">auto_refresh</string>
+    <string name="title_refresh_feeds_when_app_started">自动刷新内容</string>
+    <string name="summary_refresh_feeds_when_app_started">打开应用后为您智能刷新最新的内容</string>
+    <string name="title_general">常规</string>
+    <string name="key_check_update">check_update</string>
+    <string name="title_check_update">自动检查更新</string>
+    <string name="summary_check_update">启动时自动检查是否有新版本</string>
+    <string name="key_clean_cache">clean_cache</string>
+    <string name="title_clean_cache">清理缓存</string>
+    <string name="summary_clean_cache">清理应用内所有的图片缓存</string>
+    <string name="key_app_info">app_info</string>
+    <string name="title_app_info">应用信息</string>
+    <string name="summary_app_info">前往设置中的应用信息界面</string>
+    <string name="key_about">about</string>
+    <string name="title_about">关于</string>
+    <string name="key_user_terms">user_terms</string>
+    <string name="title_user_terms">用户协议</string>
+    <string name="title_logout">退出当前账号</string>
+    <string name="key_logout">logout</string>
+    <string name="title_activity_settings">Settings</string>
+
+    <!-- Strings related to Settings -->
+
+    <!-- Example General settings -->
+    <string name="pref_header_general">General</string>
+
+    <string name="pref_title_social_recommendations">Enable social recommendations</string>
+    <string name="pref_description_social_recommendations">Recommendations for people to contact based on your message
+        history
+    </string>
+
+    <string name="pref_title_display_name">Display name</string>
+    <string name="pref_default_display_name">John Smith</string>
+
+    <!-- 左边菜单 -->
+    <string name="compose">发布趣图</string>
+    <string name="user_home">个人主页</string>
+    <string name="recommend_following">推荐关注</string>
+    <string name="draft_box">草稿箱</string>
+    <string name="settings">设置</string>
+
+    <string name="my_behavior">s</string>
+
+    <!--我的-->
+    <string name="stop">终止</string>
+    <string name="jiantou">文字间的间隔</string>
+    <string name="a11y_plant_item_image">植物图片</string>
+    <string name="need_num">\n整体还需要</string>
+    <string name="time">\n时间</string>
+    <string name="get_ready">\n准备</string>
+    <string name="sign">标示</string>
+
 </resources>

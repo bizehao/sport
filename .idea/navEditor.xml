@@ -13,8 +13,44 @@
                       <LayoutPositions>
                         <option name="myPosition">
                           <Point>
-                            <option name="x" value="146" />
-                            <option name="y" value="3" />
+                            <option name="x" value="-430" />
+                            <option name="y" value="96" />
+                          </Point>
+                        </option>
+                      </LayoutPositions>
+                    </value>
+                  </entry>
+                  <entry key="gradeFragment">
+                    <value>
+                      <LayoutPositions>
+                        <option name="myPosition">
+                          <Point>
+                            <option name="x" value="-1437" />
+                            <option name="y" value="52" />
+                          </Point>
+                        </option>
+                      </LayoutPositions>
+                    </value>
+                  </entry>
+                  <entry key="runningFragment">
+                    <value>
+                      <LayoutPositions>
+                        <option name="myPosition">
+                          <Point>
+                            <option name="x" value="-991" />
+                            <option name="y" value="134" />
+                          </Point>
+                        </option>
+                      </LayoutPositions>
+                    </value>
+                  </entry>
+                  <entry key="setting_fragment">
+                    <value>
+                      <LayoutPositions>
+                        <option name="myPosition">
+                          <Point>
+                            <option name="x" value="-253" />
+                            <option name="y" value="-216" />
                           </Point>
                         </option>
                       </LayoutPositions>
@@ -25,13 +61,28 @@
                       <LayoutPositions>
                         <option name="myPosition">
                           <Point>
-                            <option name="x" value="-232" />
-                            <option name="y" value="10" />
+                            <option name="x" value="-756" />
+                            <option name="y" value="-250" />
                           </Point>
                         </option>
                         <option name="myPositions">
                           <map>
                             <entry key="action_sport_fragment_to_comparedFragment">
+                              <value>
+                                <LayoutPositions />
+                              </value>
+                            </entry>
+                            <entry key="action_sport_fragment_to_gradeFragment">
+                              <value>
+                                <LayoutPositions />
+                              </value>
+                            </entry>
+                            <entry key="action_sport_fragment_to_runningFragment">
+                              <value>
+                                <LayoutPositions />
+                              </value>
+                            </entry>
+                            <entry key="action_sport_fragment_to_settingFragment">
                               <value>
                                 <LayoutPositions />
                               </value>

@@ -1,0 +1,1401 @@
+[
+  {
+    "id": "0",
+    "grade": "1",
+    "intervalTime": "90",
+    "subData": [
+      {
+        "id": "0",
+        "pushUpNum": "2"
+      },
+      {
+        "id": "1",
+        "pushUpNum": "3"
+      },
+      {
+        "id": "2",
+        "pushUpNum": "4"
+      },
+      {
+        "id": "3",
+        "pushUpNum": "3"
+      },
+      {
+        "id": "4",
+        "pushUpNum": "2"
+      }
+    ]
+  },
+  {
+    "id": "1",
+    "grade": "1",
+    "intervalTime": "90",
+    "subData": [
+      {
+        "id": "0",
+        "pushUpNum": "3"
+      },
+      {
+        "id": "1",
+        "pushUpNum": "4"
+      },
+      {
+        "id": "2",
+        "pushUpNum": "4"
+      },
+      {
+        "id": "3",
+        "pushUpNum": "3"
+      },
+      {
+        "id": "4",
+        "pushUpNum": "2"
+      }
+    ]
+  },
+  {
+    "id": "2",
+    "grade": "1",
+    "intervalTime": "90",
+    "subData": [
+      {
+        "id": "0",
+        "pushUpNum": "4"
+      },
+      {
+        "id": "1",
+        "pushUpNum": "4"
+      },
+      {
+        "id": "2",
+        "pushUpNum": "3"
+      },
+      {
+        "id": "3",
+        "pushUpNum": "5"
+      },
+      {
+        "id": "4",
+        "pushUpNum": "4"
+      }
+    ]
+  },
+  {
+    "id": "3",
+    "grade": "1",
+    "intervalTime": "90",
+    "subData": [
+      {
+        "id": "0",
+        "pushUpNum": "5"
+      },
+      {
+        "id": "1",
+        "pushUpNum": "6"
+      },
+      {
+        "id": "2",
+        "pushUpNum": "6"
+      },
+      {
+        "id": "3",
+        "pushUpNum": "4"
+      },
+      {
+        "id": "4",
+        "pushUpNum": "4"
+      }
+    ]
+  },
+  {
+    "id": "4",
+    "grade": "1",
+    "intervalTime": "90",
+    "subData": [
+      {
+        "id": "0",
+        "pushUpNum": "7"
+      },
+      {
+        "id": "1",
+        "pushUpNum": "6"
+      },
+      {
+        "id": "2",
+        "pushUpNum": "6"
+      },
+      {
+        "id": "3",
+        "pushUpNum": "5"
+      },
+      {
+        "id": "4",
+        "pushUpNum": "3"
+      }
+    ]
+  },
+  {
+    "id": "5",
+    "grade": "1",
+    "intervalTime": "90",
+    "subData": [
+      {
+        "id": "0",
+        "pushUpNum": "8"
+      },
+      {
+        "id": "1",
+        "pushUpNum": "8"
+      },
+      {
+        "id": "2",
+        "pushUpNum": "6"
+      },
+      {
+        "id": "3",
+        "pushUpNum": "7"
+      },
+      {
+        "id": "4",
+        "pushUpNum": "6"
+      }
+    ]
+  },
+  {
+    "id": "6",
+    "grade": "1",
+    "intervalTime": "90",
+    "subData": [
+      {
+        "id": "0",
+        "pushUpNum": "10"
+      },
+      {
+        "id": "1",
+        "pushUpNum": "6"
+      },
+      {
+        "id": "2",
+        "pushUpNum": "10"
+      },
+      {
+        "id": "3",
+        "pushUpNum": "8"
+      },
+      {
+        "id": "4",
+        "pushUpNum": "6"
+      }
+    ]
+  },
+  {
+    "id": "7",
+    "grade": "1",
+    "intervalTime": "90",
+    "subData": [
+      {
+        "id": "0",
+        "pushUpNum": "12"
+      },
+      {
+        "id": "1",
+        "pushUpNum": "8"
+      },
+      {
+        "id": "2",
+        "pushUpNum": "8"
+      },
+      {
+        "id": "3",
+        "pushUpNum": "10"
+      },
+      {
+        "id": "4",
+        "pushUpNum": "8"
+      }
+    ]
+  },
+  {
+    "id": "8",
+    "grade": "1",
+    "intervalTime": "90",
+    "subData": [
+      {
+        "id": "0",
+        "pushUpNum": "14"
+      },
+      {
+        "id": "1",
+        "pushUpNum": "10"
+      },
+      {
+        "id": "2",
+        "pushUpNum": "14"
+      },
+      {
+        "id": "3",
+        "pushUpNum": "8"
+      },
+      {
+        "id": "4",
+        "pushUpNum": "8"
+      }
+    ]
+  },
+  {
+    "id": "9",
+    "grade": "1",
+    "intervalTime": "90",
+    "subData": [
+      {
+        "id": "0",
+        "pushUpNum": "20"
+      }
+    ]
+  },
+  {
+    "id": "10",
+    "grade": "2",
+    "intervalTime": "90",
+    "subData": [
+      {
+        "id": "0",
+        "pushUpNum": "16"
+      },
+      {
+        "id": "1",
+        "pushUpNum": "12"
+      },
+      {
+        "id": "2",
+        "pushUpNum": "14"
+      },
+      {
+        "id": "3",
+        "pushUpNum": "10"
+      },
+      {
+        "id": "4",
+        "pushUpNum": "10"
+      }
+    ]
+  },
+  {
+    "id": "11",
+    "grade": "2",
+    "intervalTime": "90",
+    "subData": [
+      {
+        "id": "0",
+        "pushUpNum": "16"
+      },
+      {
+        "id": "1",
+        "pushUpNum": "16"
+      },
+      {
+        "id": "2",
+        "pushUpNum": "12"
+      },
+      {
+        "id": "3",
+        "pushUpNum": "11"
+      },
+      {
+        "id": "4",
+        "pushUpNum": "10"
+      }
+    ]
+  },
+  {
+    "id": "12",
+    "grade": "2",
+    "intervalTime": "90",
+    "subData": [
+      {
+        "id": "0",
+        "pushUpNum": "18"
+      },
+      {
+        "id": "1",
+        "pushUpNum": "16"
+      },
+      {
+        "id": "2",
+        "pushUpNum": "12"
+      },
+      {
+        "id": "3",
+        "pushUpNum": "12"
+      },
+      {
+        "id": "4",
+        "pushUpNum": "10"
+      }
+    ]
+  },
+  {
+    "id": "13",
+    "grade": "2",
+    "intervalTime": "90",
+    "subData": [
+      {
+        "id": "0",
+        "pushUpNum": "20"
+      },
+      {
+        "id": "1",
+        "pushUpNum": "16"
+      },
+      {
+        "id": "2",
+        "pushUpNum": "14"
+      },
+      {
+        "id": "3",
+        "pushUpNum": "12"
+      },
+      {
+        "id": "4",
+        "pushUpNum": "12"
+      }
+    ]
+  },
+  {
+    "id": "14",
+    "grade": "2",
+    "intervalTime": "90",
+    "subData": [
+      {
+        "id": "0",
+        "pushUpNum": "22"
+      },
+      {
+        "id": "1",
+        "pushUpNum": "12"
+      },
+      {
+        "id": "2",
+        "pushUpNum": "18"
+      },
+      {
+        "id": "3",
+        "pushUpNum": "12"
+      },
+      {
+        "id": "4",
+        "pushUpNum": "12"
+      }
+    ]
+  },
+  {
+    "id": "15",
+    "grade": "2",
+    "intervalTime": "90",
+    "subData": [
+      {
+        "id": "0",
+        "pushUpNum": "24"
+      },
+      {
+        "id": "1",
+        "pushUpNum": "20"
+      },
+      {
+        "id": "2",
+        "pushUpNum": "16"
+      },
+      {
+        "id": "3",
+        "pushUpNum": "12"
+      },
+      {
+        "id": "4",
+        "pushUpNum": "8"
+      }
+    ]
+  },
+  {
+    "id": "16",
+    "grade": "2",
+    "intervalTime": "90",
+    "subData": [
+      {
+        "id": "0",
+        "pushUpNum": "26"
+      },
+      {
+        "id": "1",
+        "pushUpNum": "20"
+      },
+      {
+        "id": "2",
+        "pushUpNum": "14"
+      },
+      {
+        "id": "3",
+        "pushUpNum": "12"
+      },
+      {
+        "id": "4",
+        "pushUpNum": "10"
+      }
+    ]
+  },
+  {
+    "id": "17",
+    "grade": "2",
+    "intervalTime": "90",
+    "subData": [
+      {
+        "id": "0",
+        "pushUpNum": "28"
+      },
+      {
+        "id": "1",
+        "pushUpNum": "22"
+      },
+      {
+        "id": "2",
+        "pushUpNum": "14"
+      },
+      {
+        "id": "3",
+        "pushUpNum": "12"
+      },
+      {
+        "id": "4",
+        "pushUpNum": "10"
+      }
+    ]
+  },
+  {
+    "id": "18",
+    "grade": "2",
+    "intervalTime": "90",
+    "subData": [
+      {
+        "id": "0",
+        "pushUpNum": "28"
+      },
+      {
+        "id": "1",
+        "pushUpNum": "22"
+      },
+      {
+        "id": "2",
+        "pushUpNum": "14"
+      },
+      {
+        "id": "3",
+        "pushUpNum": "12"
+      },
+      {
+        "id": "4",
+        "pushUpNum": "12"
+      }
+    ]
+  },
+  {
+    "id": "19",
+    "grade": "2",
+    "intervalTime": "90",
+    "subData": [
+      {
+        "id": "0",
+        "pushUpNum": "30"
+      },
+      {
+        "id": "1",
+        "pushUpNum": "20"
+      },
+      {
+        "id": "2",
+        "pushUpNum": "18"
+      },
+      {
+        "id": "3",
+        "pushUpNum": "10"
+      },
+      {
+        "id": "4",
+        "pushUpNum": "12"
+      }
+    ]
+  },
+  {
+    "id": "20",
+    "grade": "2",
+    "intervalTime": "90",
+    "subData": [
+      {
+        "id": "0",
+        "pushUpNum": "32"
+      },
+      {
+        "id": "1",
+        "pushUpNum": "20"
+      },
+      {
+        "id": "2",
+        "pushUpNum": "18"
+      },
+      {
+        "id": "3",
+        "pushUpNum": "10"
+      },
+      {
+        "id": "4",
+        "pushUpNum": "12"
+      }
+    ]
+  },
+  {
+    "id": "21",
+    "grade": "2",
+    "intervalTime": "90",
+    "subData": [
+      {
+        "id": "0",
+        "pushUpNum": "32"
+      },
+      {
+        "id": "1",
+        "pushUpNum": "22"
+      },
+      {
+        "id": "2",
+        "pushUpNum": "18"
+      },
+      {
+        "id": "3",
+        "pushUpNum": "14"
+      },
+      {
+        "id": "4",
+        "pushUpNum": "10"
+      }
+    ]
+  },
+  {
+    "id": "22",
+    "grade": "2",
+    "intervalTime": "90",
+    "subData": [
+      {
+        "id": "0",
+        "pushUpNum": "34"
+      },
+      {
+        "id": "1",
+        "pushUpNum": "18"
+      },
+      {
+        "id": "2",
+        "pushUpNum": "20"
+      },
+      {
+        "id": "3",
+        "pushUpNum": "16"
+      },
+      {
+        "id": "4",
+        "pushUpNum": "12"
+      }
+    ]
+  },
+  {
+    "id": "23",
+    "grade": "2",
+    "intervalTime": "90",
+    "subData": [
+      {
+        "id": "0",
+        "pushUpNum": "34"
+      },
+      {
+        "id": "1",
+        "pushUpNum": "20"
+      },
+      {
+        "id": "2",
+        "pushUpNum": "18"
+      },
+      {
+        "id": "3",
+        "pushUpNum": "16"
+      },
+      {
+        "id": "4",
+        "pushUpNum": "12"
+      }
+    ]
+  },
+  {
+    "id": "24",
+    "grade": "2",
+    "intervalTime": "90",
+    "subData": [
+      {
+        "id": "0",
+        "pushUpNum": "36"
+      },
+      {
+        "id": "1",
+        "pushUpNum": "22"
+      },
+      {
+        "id": "2",
+        "pushUpNum": "16"
+      },
+      {
+        "id": "3",
+        "pushUpNum": "16"
+      },
+      {
+        "id": "4",
+        "pushUpNum": "14"
+      }
+    ]
+  },
+  {
+    "id": "25",
+    "grade": "2",
+    "intervalTime": "90",
+    "subData": [
+      {
+        "id": "0",
+        "pushUpNum": "38"
+      },
+      {
+        "id": "1",
+        "pushUpNum": "24"
+      },
+      {
+        "id": "2",
+        "pushUpNum": "18"
+      },
+      {
+        "id": "3",
+        "pushUpNum": "14"
+      },
+      {
+        "id": "4",
+        "pushUpNum": "12"
+      }
+    ]
+  },
+  {
+    "id": "26",
+    "grade": "2",
+    "intervalTime": "90",
+    "subData": [
+      {
+        "id": "0",
+        "pushUpNum": "38"
+      },
+      {
+        "id": "1",
+        "pushUpNum": "22"
+      },
+      {
+        "id": "2",
+        "pushUpNum": "16"
+      },
+      {
+        "id": "3",
+        "pushUpNum": "20"
+      },
+      {
+        "id": "4",
+        "pushUpNum": "12"
+      }
+    ]
+  },
+  {
+    "id": "27",
+    "grade": "2",
+    "intervalTime": "90",
+    "subData": [
+      {
+        "id": "0",
+        "pushUpNum": "40"
+      },
+      {
+        "id": "1",
+        "pushUpNum": "18"
+      },
+      {
+        "id": "2",
+        "pushUpNum": "24"
+      },
+      {
+        "id": "3",
+        "pushUpNum": "16"
+      },
+      {
+        "id": "4",
+        "pushUpNum": "16"
+      }
+    ]
+  },
+  {
+    "id": "28",
+    "grade": "3",
+    "intervalTime": "90",
+    "subData": [
+      {
+        "id": "0",
+        "pushUpNum": "34"
+      },
+      {
+        "id": "1",
+        "pushUpNum": "24"
+      },
+      {
+        "id": "2",
+        "pushUpNum": "22"
+      },
+      {
+        "id": "3",
+        "pushUpNum": "20"
+      },
+      {
+        "id": "4",
+        "pushUpNum": "18"
+      }
+    ]
+  },
+  {
+    "id": "29",
+    "grade": "3",
+    "intervalTime": "90",
+    "subData": [
+      {
+        "id": "0",
+        "pushUpNum": "36"
+      },
+      {
+        "id": "1",
+        "pushUpNum": "26"
+      },
+      {
+        "id": "2",
+        "pushUpNum": "22"
+      },
+      {
+        "id": "3",
+        "pushUpNum": "22"
+      },
+      {
+        "id": "4",
+        "pushUpNum": "14"
+      }
+    ]
+  },
+  {
+    "id": "30",
+    "grade": "3",
+    "intervalTime": "90",
+    "subData": [
+      {
+        "id": "0",
+        "pushUpNum": "38"
+      },
+      {
+        "id": "1",
+        "pushUpNum": "26"
+      },
+      {
+        "id": "2",
+        "pushUpNum": "22"
+      },
+      {
+        "id": "3",
+        "pushUpNum": "22"
+      },
+      {
+        "id": "4",
+        "pushUpNum": "14"
+      }
+    ]
+  },
+  {
+    "id": "31",
+    "grade": "3",
+    "intervalTime": "90",
+    "subData": [
+      {
+        "id": "0",
+        "pushUpNum": "40"
+      },
+      {
+        "id": "1",
+        "pushUpNum": "26"
+      },
+      {
+        "id": "2",
+        "pushUpNum": "24"
+      },
+      {
+        "id": "3",
+        "pushUpNum": "18"
+      },
+      {
+        "id": "4",
+        "pushUpNum": "16"
+      }
+    ]
+  },
+  {
+    "id": "32",
+    "grade": "3",
+    "intervalTime": "90",
+    "subData": [
+      {
+        "id": "0",
+        "pushUpNum": "40"
+      },
+      {
+        "id": "1",
+        "pushUpNum": "28"
+      },
+      {
+        "id": "2",
+        "pushUpNum": "24"
+      },
+      {
+        "id": "3",
+        "pushUpNum": "18"
+      },
+      {
+        "id": "4",
+        "pushUpNum": "16"
+      }
+    ]
+  },
+  {
+    "id": "33",
+    "grade": "3",
+    "intervalTime": "90",
+    "subData": [
+      {
+        "id": "0",
+        "pushUpNum": "42"
+      },
+      {
+        "id": "1",
+        "pushUpNum": "24"
+      },
+      {
+        "id": "2",
+        "pushUpNum": "22"
+      },
+      {
+        "id": "3",
+        "pushUpNum": "22"
+      },
+      {
+        "id": "4",
+        "pushUpNum": "18"
+      }
+    ]
+  },
+  {
+    "id": "34",
+    "grade": "3",
+    "intervalTime": "90",
+    "subData": [
+      {
+        "id": "0",
+        "pushUpNum": "46"
+      },
+      {
+        "id": "1",
+        "pushUpNum": "26"
+      },
+      {
+        "id": "2",
+        "pushUpNum": "24"
+      },
+      {
+        "id": "3",
+        "pushUpNum": "20"
+      },
+      {
+        "id": "4",
+        "pushUpNum": "16"
+      }
+    ]
+  },
+  {
+    "id": "35",
+    "grade": "3",
+    "intervalTime": "90",
+    "subData": [
+      {
+        "id": "0",
+        "pushUpNum": "46"
+      },
+      {
+        "id": "1",
+        "pushUpNum": "26"
+      },
+      {
+        "id": "2",
+        "pushUpNum": "24"
+      },
+      {
+        "id": "3",
+        "pushUpNum": "20"
+      },
+      {
+        "id": "4",
+        "pushUpNum": "18"
+      }
+    ]
+  },
+  {
+    "id": "36",
+    "grade": "3",
+    "intervalTime": "90",
+    "subData": [
+      {
+        "id": "0",
+        "pushUpNum": "48"
+      },
+      {
+        "id": "1",
+        "pushUpNum": "26"
+      },
+      {
+        "id": "2",
+        "pushUpNum": "26"
+      },
+      {
+        "id": "3",
+        "pushUpNum": "20"
+      },
+      {
+        "id": "4",
+        "pushUpNum": "16"
+      }
+    ]
+  },
+  {
+    "id": "37",
+    "grade": "3",
+    "intervalTime": "90",
+    "subData": [
+      {
+        "id": "0",
+        "pushUpNum": "50"
+      },
+      {
+        "id": "1",
+        "pushUpNum": "28"
+      },
+      {
+        "id": "2",
+        "pushUpNum": "24"
+      },
+      {
+        "id": "3",
+        "pushUpNum": "20"
+      },
+      {
+        "id": "4",
+        "pushUpNum": "18"
+      }
+    ]
+  },
+  {
+    "id": "38",
+    "grade": "3",
+    "intervalTime": "90",
+    "subData": [
+      {
+        "id": "0",
+        "pushUpNum": "50"
+      },
+      {
+        "id": "1",
+        "pushUpNum": "26"
+      },
+      {
+        "id": "2",
+        "pushUpNum": "26"
+      },
+      {
+        "id": "3",
+        "pushUpNum": "22"
+      },
+      {
+        "id": "4",
+        "pushUpNum": "18"
+      }
+    ]
+  },
+  {
+    "id": "39",
+    "grade": "3",
+    "intervalTime": "90",
+    "subData": [
+      {
+        "id": "0",
+        "pushUpNum": "52"
+      },
+      {
+        "id": "1",
+        "pushUpNum": "26"
+      },
+      {
+        "id": "2",
+        "pushUpNum": "26"
+      },
+      {
+        "id": "3",
+        "pushUpNum": "22"
+      },
+      {
+        "id": "4",
+        "pushUpNum": "18"
+      }
+    ]
+  },
+  {
+    "id": "40",
+    "grade": "3",
+    "intervalTime": "90",
+    "subData": [
+      {
+        "id": "0",
+        "pushUpNum": "54"
+      },
+      {
+        "id": "1",
+        "pushUpNum": "28"
+      },
+      {
+        "id": "2",
+        "pushUpNum": "24"
+      },
+      {
+        "id": "3",
+        "pushUpNum": "22"
+      },
+      {
+        "id": "4",
+        "pushUpNum": "18"
+      }
+    ]
+  },
+  {
+    "id": "41",
+    "grade": "3",
+    "intervalTime": "90",
+    "subData": [
+      {
+        "id": "0",
+        "pushUpNum": "56"
+      },
+      {
+        "id": "1",
+        "pushUpNum": "28"
+      },
+      {
+        "id": "2",
+        "pushUpNum": "24"
+      },
+      {
+        "id": "3",
+        "pushUpNum": "22"
+      },
+      {
+        "id": "4",
+        "pushUpNum": "18"
+      }
+    ]
+  },
+  {
+    "id": "42",
+    "grade": "3",
+    "intervalTime": "90",
+    "subData": [
+      {
+        "id": "0",
+        "pushUpNum": "58"
+      },
+      {
+        "id": "1",
+        "pushUpNum": "28"
+      },
+      {
+        "id": "2",
+        "pushUpNum": "24"
+      },
+      {
+        "id": "3",
+        "pushUpNum": "22"
+      },
+      {
+        "id": "4",
+        "pushUpNum": "18"
+      }
+    ]
+  },
+  {
+    "id": "43",
+    "grade": "3",
+    "intervalTime": "90",
+    "subData": [
+      {
+        "id": "0",
+        "pushUpNum": "60"
+      },
+      {
+        "id": "1",
+        "pushUpNum": "26"
+      },
+      {
+        "id": "2",
+        "pushUpNum": "24"
+      },
+      {
+        "id": "3",
+        "pushUpNum": "24"
+      },
+      {
+        "id": "4",
+        "pushUpNum": "20"
+      }
+    ]
+  },
+  {
+    "id": "44",
+    "grade": "3",
+    "intervalTime": "90",
+    "subData": [
+      {
+        "id": "0",
+        "pushUpNum": "62"
+      },
+      {
+        "id": "1",
+        "pushUpNum": "30"
+      },
+      {
+        "id": "2",
+        "pushUpNum": "24"
+      },
+      {
+        "id": "3",
+        "pushUpNum": "22"
+      },
+      {
+        "id": "4",
+        "pushUpNum": "18"
+      }
+    ]
+  },
+  {
+    "id": "45",
+    "grade": "3",
+    "intervalTime": "90",
+    "subData": [
+      {
+        "id": "0",
+        "pushUpNum": "64"
+      },
+      {
+        "id": "1",
+        "pushUpNum": "30"
+      },
+      {
+        "id": "2",
+        "pushUpNum": "24"
+      },
+      {
+        "id": "3",
+        "pushUpNum": "20"
+      },
+      {
+        "id": "4",
+        "pushUpNum": "20"
+      }
+    ]
+  },
+  {
+    "id": "46",
+    "grade": "3",
+    "intervalTime": "90",
+    "subData": [
+      {
+        "id": "0",
+        "pushUpNum": "66"
+      },
+      {
+        "id": "1",
+        "pushUpNum": "30"
+      },
+      {
+        "id": "2",
+        "pushUpNum": "24"
+      },
+      {
+        "id": "3",
+        "pushUpNum": "22"
+      },
+      {
+        "id": "4",
+        "pushUpNum": "20"
+      }
+    ]
+  },
+  {
+    "id": "47",
+    "grade": "3",
+    "intervalTime": "90",
+    "subData": [
+      {
+        "id": "0",
+        "pushUpNum": "68"
+      },
+      {
+        "id": "1",
+        "pushUpNum": "30"
+      },
+      {
+        "id": "2",
+        "pushUpNum": "24"
+      },
+      {
+        "id": "3",
+        "pushUpNum": "22"
+      },
+      {
+        "id": "4",
+        "pushUpNum": "20"
+      }
+    ]
+  },
+  {
+    "id": "48",
+    "grade": "3",
+    "intervalTime": "90",
+    "subData": [
+      {
+        "id": "0",
+        "pushUpNum": "70"
+      },
+      {
+        "id": "1",
+        "pushUpNum": "32"
+      },
+      {
+        "id": "2",
+        "pushUpNum": "24"
+      },
+      {
+        "id": "3",
+        "pushUpNum": "22"
+      },
+      {
+        "id": "4",
+        "pushUpNum": "18"
+      }
+    ]
+  },
+  {
+    "id": "49",
+    "grade": "3",
+    "intervalTime": "90",
+    "subData": [
+      {
+        "id": "0",
+        "pushUpNum": "74"
+      },
+      {
+        "id": "1",
+        "pushUpNum": "32"
+      },
+      {
+        "id": "2",
+        "pushUpNum": "28"
+      },
+      {
+        "id": "3",
+        "pushUpNum": "18"
+      },
+      {
+        "id": "4",
+        "pushUpNum": "18"
+      }
+    ]
+  },
+  {
+    "id": "50",
+    "grade": "3",
+    "intervalTime": "90",
+    "subData": [
+      {
+        "id": "0",
+        "pushUpNum": "76"
+      },
+      {
+        "id": "1",
+        "pushUpNum": "32"
+      },
+      {
+        "id": "2",
+        "pushUpNum": "24"
+      },
+      {
+        "id": "3",
+        "pushUpNum": "20"
+      },
+      {
+        "id": "4",
+        "pushUpNum": "20"
+      }
+    ]
+  },
+  {
+    "id": "51",
+    "grade": "3",
+    "intervalTime": "90",
+    "subData": [
+      {
+        "id": "0",
+        "pushUpNum": "78"
+      },
+      {
+        "id": "1",
+        "pushUpNum": "32"
+      },
+      {
+        "id": "2",
+        "pushUpNum": "26"
+      },
+      {
+        "id": "3",
+        "pushUpNum": "20"
+      },
+      {
+        "id": "4",
+        "pushUpNum": "18"
+      }
+    ]
+  },
+  {
+    "id": "52",
+    "grade": "3",
+    "intervalTime": "90",
+    "subData": [
+      {
+        "id": "0",
+        "pushUpNum": "100"
+      }
+    ]
+  }
+]

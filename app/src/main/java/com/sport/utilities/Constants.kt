@@ -9,3 +9,5 @@ package com.sport.utilities
 
 const val DATABASE_NAME = "sport-db"
 const val PLANT_DATA_FILENAME = "plants.json"
+const val SPORT_DATA = "sport.json"
+const val USER_CURRENT_ITEM = "user-current-item" //用户当前的选择

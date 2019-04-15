@@ -19,9 +19,10 @@ package com.sport.utilities
 import android.content.Context
 import com.sport.data.AppDatabase
 import com.sport.data.repository.PersonRepository
+import com.sport.data.repository.PlantRepository
+import com.sport.data.repository.SportDataRepository
 import com.sport.data.repository.SportInfoRepository
-import com.sport.ui.compared.ComparedViewModelFactory
-import com.sport.ui.sport.SportViewModelFactory
+import com.sport.viewmodels.*
 
 
 /**
@@ -48,20 +49,65 @@ object InjectorUtils {
     }
 
     /**
+     * 获取植物工厂
+     */
+    private fun getPlantRepository(context: Context): PlantRepository {
+        return PlantRepository.getInstance(
+            AppDatabase.getInstance(context.applicationContext).plantDao())
+    }
+
+    /**
+     * 获取运动数据工厂
+     */
+    private fun getSportDataRepository(context: Context): SportDataRepository {
+        return SportDataRepository.getInstance(
+            AppDatabase.getInstance(context.applicationContext).sportDataDao())
+    }
+
+//数据工厂
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//viewModel构建工厂
+
+    /**
      * 获取运动界面的ViewModel的构造工厂
      */
-    fun provideSportViewModelFactory(context: Context) : SportViewModelFactory {
+    fun provideSportViewModelFactory(context: Context) : CommonViewModelFactory<SportViewModel> {
         val sportInfoRepository = getSportInfoRepository(context)
         val personRepository = getPersonRepository(context)
-        return SportViewModelFactory(sportInfoRepository,personRepository)
+        return CommonViewModelFactory(SportViewModel(sportInfoRepository, personRepository))
     }
 
     /**
      * 获取运动信息展示的ViewModel的构造工厂
      */
-    fun provideComparedViewModelFactory(context: Context) : ComparedViewModelFactory {
+    fun provideComparedViewModelFactory(context: Context) : CommonViewModelFactory<ComparedViewModel> {
         val repository = getSportInfoRepository(context)
-        return ComparedViewModelFactory(repository)
+        return CommonViewModelFactory(ComparedViewModel(repository))
     }
+
+    /**
+     * 获取运动主界面的ViewModel的构造工厂
+     */
+    fun provideIndexViewModelFactory(context: Context): CommonViewModelFactory<IndexViewModel> {
+        val repository = getPlantRepository(context)
+        return CommonViewModelFactory(IndexViewModel(repository))
+    }
+
+    /**
+     * 获取运动主界面的ViewModel的构造工厂
+     */
+    fun provideGradeViewModelFactory(context: Context): CommonViewModelFactory<GradeViewModel> {
+        val repository = getSportDataRepository(context)
+        return CommonViewModelFactory(GradeViewModel(repository))
+    }
+
+    /**
+     * 获取运动主界面的ViewModel的构造工厂
+     */
+    fun provideRunningViewModelFactory(context: Context): CommonViewModelFactory<RunningViewModel> {
+        val repository = getSportDataRepository(context)
+        return CommonViewModelFactory(RunningViewModel(repository))
+    }
+
 
 }

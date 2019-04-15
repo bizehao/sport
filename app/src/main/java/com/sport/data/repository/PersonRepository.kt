@@ -5,6 +5,7 @@ import androidx.lifecycle.MutableLiveData
 import com.sport.data.Resource
 import com.sport.data.dao.PersonDao
 import com.sport.data.table.Person
+import com.sport.utilities.DataModelHandle
 import com.sport.utilities.SportExecutors
 
 /**
@@ -14,17 +15,9 @@ import com.sport.utilities.SportExecutors
  * Description:
  */
 class PersonRepository private constructor(private val personDao: PersonDao) {
-    fun getPersons():LiveData<Resource<List<Person>>>{
-        val liveData = MutableLiveData<Resource<List<Person>>>()
-        liveData.value = Resource.loading(null)
-        SportExecutors.diskIO.execute {
-            val persons = personDao.getPersons()
-            liveData.postValue(Resource.success(persons))
-        }
-        return liveData
-    }
+    fun getPersons() = DataModelHandle.getData { personDao.getPersons() }
 
-    fun insertPersons(persons: List<Person>){
+    fun insertPersons(persons: List<Person>) {
         SportExecutors.diskIO.execute {
             personDao.insertAll(persons)
         }
@@ -34,7 +27,8 @@ class PersonRepository private constructor(private val personDao: PersonDao) {
 
     companion object {
 
-        @Volatile private var instant: PersonRepository? = null
+        @Volatile
+        private var instant: PersonRepository? = null
 
         fun getInstance(personDao: PersonDao) =
             instant ?: synchronized(this) {

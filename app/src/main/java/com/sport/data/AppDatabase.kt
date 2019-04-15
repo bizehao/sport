@@ -10,11 +10,16 @@ import androidx.sqlite.db.SupportSQLiteDatabase
 import androidx.work.OneTimeWorkRequestBuilder
 import androidx.work.WorkManager
 import com.sport.data.dao.PersonDao
+import com.sport.data.dao.PlantDao
+import com.sport.data.dao.SportDataDao
 import com.sport.data.dao.SportInfoDao
 import com.sport.data.table.Person
+import com.sport.data.table.Plant
+import com.sport.data.table.SportData
 import com.sport.data.table.SportInfo
 import com.sport.utilities.DATABASE_NAME
 import com.sport.workers.SeedDatabaseWorker
+import com.sport.workers.SportDataDatabaseWorker
 
 /**
  * User: bizehao
@@ -22,12 +27,18 @@ import com.sport.workers.SeedDatabaseWorker
  * Time: 下午1:53
  * Description: The Room database for this app
  */
-@Database(entities = [Person::class, SportInfo::class], version = 1, exportSchema = false)
+@Database(
+    entities = [Person::class, SportInfo::class, Plant::class, SportData::class],
+    version = 1,
+    exportSchema = false
+)
 @TypeConverters(Converters::class)
 abstract class AppDatabase : RoomDatabase() {
 
     abstract fun personDao(): PersonDao
     abstract fun sportInfoDao(): SportInfoDao
+    abstract fun plantDao(): PlantDao
+    abstract fun sportDataDao(): SportDataDao
 
     companion object {
         // For Singleton instantiation
@@ -50,8 +61,11 @@ abstract class AppDatabase : RoomDatabase() {
                         super.onCreate(db)
                         Log.e("==========", "============")
                         //一次性工作
-                        val request = OneTimeWorkRequestBuilder<SeedDatabaseWorker>().build()
-                        WorkManager.getInstance().enqueue(request)
+                        val request1 = OneTimeWorkRequestBuilder<SeedDatabaseWorker>().build()
+                        WorkManager.getInstance().enqueue(request1)
+
+                        val request2 = OneTimeWorkRequestBuilder<SportDataDatabaseWorker>().build()
+                        WorkManager.getInstance().enqueue(request2)
                     }
                 })
                 .build()

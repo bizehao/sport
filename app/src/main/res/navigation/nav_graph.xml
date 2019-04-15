@@ -6,7 +6,7 @@
 
     <fragment
             android:id="@+id/sport_fragment"
-            android:name="com.sport.ui.sport.SportFragment"
+            android:name="com.sport.ui.fragment.SportFragment"
             android:label="SportFragment"
             tools:layout="@layout/fragment_sport">
         <action
@@ -16,12 +16,45 @@
                 app:exitAnim="@anim/slide_out_left"
                 app:popEnterAnim="@anim/slide_in_left"
                 app:popExitAnim="@anim/slide_out_right"/>
+        <action
+                android:id="@+id/action_sport_fragment_to_settingFragment"
+                app:destination="@id/setting_fragment"
+                app:enterAnim="@anim/slide_in_right"
+                app:exitAnim="@anim/slide_out_left"
+                app:popEnterAnim="@anim/slide_in_left"
+                app:popExitAnim="@anim/slide_out_right"/>
+        <action
+                android:id="@+id/action_sport_fragment_to_runningFragment"
+                app:destination="@id/runningFragment"
+                app:enterAnim="@anim/nav_default_enter_anim"
+                app:exitAnim="@anim/nav_default_exit_anim"
+                app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+                app:popExitAnim="@anim/nav_default_pop_exit_anim"/>
+        <action
+                android:id="@+id/action_sport_fragment_to_gradeFragment"
+                app:destination="@id/gradeFragment"
+                app:enterAnim="@anim/nav_default_enter_anim"
+                app:exitAnim="@anim/nav_default_exit_anim"
+                app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+                app:popExitAnim="@anim/nav_default_pop_exit_anim"/>
     </fragment>
 
     <fragment
             android:id="@+id/compared_fragment"
-            android:name="com.sport.ui.compared.ComparedFragment"
+            android:name="com.sport.ui.fragment.ComparedFragment"
             android:label="ComparedFragment"
             tools:layout="@layout/fragment_compared"/>
+    <fragment
+            android:id="@+id/setting_fragment"
+            android:name="com.sport.ui.fragment.SettingsFragment"
+            android:label="SettingFragment"/>
+    <fragment
+            android:id="@+id/runningFragment"
+            android:name="com.sport.ui.fragment.RunningFragment"
+            android:label="RunningFragment"/>
+    <fragment
+            android:id="@+id/gradeFragment"
+            android:name="com.sport.ui.fragment.GradeFragment"
+            android:label="GradeFragment"/>
 
 </navigation>

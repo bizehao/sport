@@ -1,0 +1,66 @@
+
+<PreferenceScreen
+        xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <PreferenceCategory
+            android:title="@string/title_gif_settings">
+
+        <Preference
+                android:key="@string/key_gif_play_control"
+                android:title="@string/title_gif_play_control"
+                android:icon="@drawable/ic_like"/>
+
+        <SwitchPreference
+                android:key="@string/key_alert_for_big_gif"
+                android:defaultValue="true"
+                android:summary="@string/summary_alert_when_play_big_gif_using_roaming"
+                android:title="@string/title_alert_when_play_big_gif_using_roaming"
+                android:icon="@drawable/ic_like"/>
+
+        <SwitchPreference
+                android:key="@string/key_auto_refresh"
+                android:defaultValue="true"
+                android:summary="@string/summary_refresh_feeds_when_app_started"
+                android:title="@string/title_refresh_feeds_when_app_started"
+                android:icon="@drawable/ic_like"/>
+
+    </PreferenceCategory>
+
+    <PreferenceCategory
+            android:title="@string/title_general">
+
+        <SwitchPreference
+                android:key="@string/key_check_update"
+                android:defaultValue="true"
+                android:summary="@string/summary_check_update"
+                android:title="@string/title_check_update"
+                android:icon="@drawable/ic_like"/>
+
+        <Preference
+                android:key="@string/key_clean_cache"
+                android:summary="@string/summary_clean_cache"
+                android:title="@string/title_clean_cache"
+                android:icon="@drawable/ic_like"/>
+
+        <Preference
+                android:key="@string/key_about"
+                android:title="@string/title_about"
+                android:icon="@drawable/ic_like"/>
+
+        <Preference
+                android:key="@string/key_user_terms"
+                android:title="@string/title_user_terms"
+                android:icon="@drawable/ic_like"/>
+
+        <Preference
+                android:key="@string/key_app_info"
+                android:title="@string/title_app_info"
+                android:icon="@drawable/ic_like"/>
+
+        <Preference
+                android:key="@string/key_logout"
+                android:title="@string/title_logout"
+                android:icon="@drawable/ic_like"/>
+
+    </PreferenceCategory>
+</PreferenceScreen>

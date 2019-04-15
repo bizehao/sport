@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:background="@color/plan_list_background"
+        android:id="@+id/top_layout"
+        android:layout_width="match_parent"
+        android:layout_height="60dp">
+
+    <ImageView
+            android:id="@+id/sign"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="25dp"
+            android:contentDescription="@string/sign"
+            android:scaleType="fitCenter"
+            android:src="@drawable/ic_star_black"/>
+
+    <TextView
+            android:id="@+id/grade"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toEndOf="@+id/sign"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="5dp"
+            android:textColor="@color/white"
+            android:textSize="18sp"
+            android:text="等级一"/>
+
+    <TextView
+            android:id="@+id/days"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:layout_marginEnd="25dp"
+            android:textSize="18sp"
+            android:textColor="@color/white"
+            android:text="10天"/>
+</RelativeLayout>

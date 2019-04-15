@@ -18,7 +18,9 @@ package com.sport.data
 
 import androidx.room.TypeConverter
 import java.util.*
-
+import com.google.gson.Gson
+import com.google.gson.reflect.TypeToken
+import com.sport.data.table.SportData
 
 /**
  * Type converters to allow Room to reference complex data types.
@@ -39,5 +41,16 @@ class Converters {
     @TypeConverter
     fun dateToTimestamp(date: Date?): Long? {
         return (if (date == null) null else date.time)
+    }
+
+    @TypeConverter
+    fun stringToList(value: String): List<SportData.SubData> {
+        val listType = object : TypeToken<List<SportData.SubData>>() {}.type
+        return Gson().fromJson(value, listType)
+    }
+
+    @TypeConverter
+    fun listToString(list: List<SportData.SubData>): String {
+        return Gson().toJson(list)
     }
 }

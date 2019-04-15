@@ -1,7 +1,7 @@
 <resources>
 
     <!-- Base application theme. -->
-    <style name="BaseAppTheme" parent="Theme.MaterialComponents.Light.DarkActionBar">
+    <style name="BaseAppTheme" parent="Theme.AppCompat.Light.NoActionBar">
         <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
@@ -25,5 +25,34 @@
 
     <!-- ToolBar -->
     <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.MaterialComponents.Light"/>
+
+    <!-- 用户名错误提示 -->
+    <style name="EditTextErrorAppearance" parent="@android:style/TextAppearance">
+        <item name="android:textColor">@color/white_text</item>
+        <item name="android:textSize">12sp</item>
+    </style>
+
+    <!-- 文本提示-->
+    <style name="HintTextAppearance" parent="@android:style/TextAppearance">
+        <item name="android:textColor">@color/white_text</item>
+        <item name="android:textSize">12sp</item>
+    </style>
+
+    <style name="EditTextStyle" parent="ThemeOverlay.MaterialComponents.TextInputEditText">
+        <item name="colorControlNormal">@color/white_text</item>
+        <item name="colorControlActivated">@color/white_text</item>
+    </style>
+
+    <style name="SportFragmentTabText" parent="TextAppearance.Design.Tab">
+        <item name="android:textSize">14sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/ripple_light</item>
+    </style>
+
+    <!-- 水波纹 -->
+    <style name="MyButton" parent="Theme.AppCompat.Light">
+        <item name="colorControlHighlight">@color/gray</item>
+        <item name="colorButtonNormal">@color/red</item>
+    </style>
 
 </resources>
