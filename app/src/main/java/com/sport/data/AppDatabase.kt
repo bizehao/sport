@@ -20,6 +20,7 @@ import com.sport.data.table.SportInfo
 import com.sport.utilities.DATABASE_NAME
 import com.sport.workers.SeedDatabaseWorker
 import com.sport.workers.SportDataDatabaseWorker
+import timber.log.Timber
 
 /**
  * User: bizehao
@@ -54,12 +55,12 @@ abstract class AppDatabase : RoomDatabase() {
         // Create and pre-populate the database. See this article for more details:
         // https://medium.com/google-developers/7-pro-tips-for-room-fbadea4bfbd1#4785
         private fun buildDatabase(context: Context): AppDatabase {
+            Timber.d("1222222222222222222222221")
             return Room.databaseBuilder(context, AppDatabase::class.java, DATABASE_NAME)
                 .addCallback(object : RoomDatabase.Callback() {
                     override fun onCreate(db: SupportSQLiteDatabase) {
                         //数据库第一次初始化时执行的操作
                         super.onCreate(db)
-                        Log.e("==========", "============")
                         //一次性工作
                         val request1 = OneTimeWorkRequestBuilder<SeedDatabaseWorker>().build()
                         WorkManager.getInstance().enqueue(request1)
@@ -68,6 +69,7 @@ abstract class AppDatabase : RoomDatabase() {
                         WorkManager.getInstance().enqueue(request2)
                     }
                 })
+                .fallbackToDestructiveMigration()//迁移数据库如果发生错误，将会重新创建数据库，而不是发生崩溃
                 .build()
         }
     }

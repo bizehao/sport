@@ -21,6 +21,12 @@ class SportDataRepository private constructor(private val sportDataDao: SportDat
 
     fun getSportDataByid(id: Int) = DataModelHandle.getData { sportDataDao.getSportDataById(id) }
 
+    fun updateSportData(list: List<SportData>){
+        SportExecutors.diskIO.execute {
+            sportDataDao.updateAll(list)
+        }
+    }
+
     companion object {
         @Volatile
         private var instance: SportDataRepository? = null

@@ -17,7 +17,10 @@ data class SportData(
     val intervalTime: Int, //间隔时间 s
 
     @ColumnInfo(name = "sub_data")
-    val subData: List<SubData>
+    val subData: List<SubData>,
+
+    @ColumnInfo(name = "date_time")
+    var dateTime: String = "" //时间
 ) {
     data class SubData(
         val id: Int, //id

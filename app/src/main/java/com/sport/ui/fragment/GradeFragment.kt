@@ -23,6 +23,7 @@ import android.graphics.*
 import android.text.TextPaint
 import android.graphics.Typeface
 import timber.log.Timber
+import kotlin.collections.HashMap
 
 /**
  * User: bizehao
@@ -61,13 +62,18 @@ class GradeFragment : Fragment() {
             }
         }))
 
+        /**
+         * 获取俯卧撑基本数据
+         */
         viewModel.getSportData().observe(viewLifecycleOwner, Observer {
             if (it.status == 0 && it.data != null) {
                 viewModel.setSportViewData(it.data)
+            }else{
+                Timber.e("正在加载数据中")
             }
         })
 
-        viewModel.sportMapOfLiveData.observe(viewLifecycleOwner, Observer {
+        viewModel.getSportMapOfLiveData().observe(viewLifecycleOwner, Observer {
             adapter.map1 = it
         })
 
@@ -120,7 +126,7 @@ class GradeFragment : Fragment() {
             holder.getBinding().layoutTouch.setOnClickListener {
                 if (position != indexOfSelectedOnBefore) {
                     SharePreferencesUtil.save(USER_CURRENT_ITEM, position)
-                    viewModel.setSportViewData(null)
+                    viewModel.changeSportListOfTime(position)
                 }
             }
         }
@@ -237,7 +243,7 @@ class GradeFragment : Fragment() {
                 c.drawText(grade, pLeft + 50 + bitmap.width, yOfBottom - mGroupHeight / 2 + fHeight, textPaint)
 
                 //写文字(天数)
-                val map = viewModel.sportMapOfLiveData.value ?: return
+                val map = viewModel.getSportMapOfLiveData().value ?: return
                 val days = "${map[currentGroupId]}天"
                 textPaint.textAlign = Paint.Align.RIGHT
                 c.drawText(days, pRight - 100, yOfBottom - mGroupHeight / 2 + fHeight, textPaint)

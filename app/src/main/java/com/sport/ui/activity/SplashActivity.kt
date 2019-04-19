@@ -10,7 +10,9 @@ import android.view.View
 import androidx.localbroadcastmanager.content.LocalBroadcastManager
 import com.sport.R
 import com.sport.common.ui.BaseActivity
+import com.sport.data.AppDatabase
 import com.sport.utilities.GlobalUtil
+import com.sport.utilities.SportExecutors
 import kotlinx.android.synthetic.main.activity_splash.*
 import timber.log.Timber
 
@@ -48,7 +50,7 @@ class SplashActivity : BaseActivity() {
         logoView = logo
         startInitRequest()
         enterTime = System.currentTimeMillis()
-        delayToForward();
+        delayToForward()
     }
 
     /**
@@ -102,6 +104,9 @@ class SplashActivity : BaseActivity() {
      * 开始向服务器发送初始化请求。
      */
     private fun startInitRequest() {
+        SportExecutors.diskIO.execute {
+            AppDatabase.getInstance(this).query("select 1",null)
+        }
         /*Init.getResponse(object : OriginThreadCallback {
             override fun onResponse(response: Response) {
                 if (activity == null) {

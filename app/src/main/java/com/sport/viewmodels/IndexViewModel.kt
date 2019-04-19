@@ -7,6 +7,9 @@ import androidx.lifecycle.Transformations
 import androidx.lifecycle.ViewModel
 import com.sport.data.repository.PlantRepository
 import com.sport.data.table.Plant
+import com.sport.data.table.SportData
+import com.sport.utilities.SharePreferencesUtil
+import com.sport.utilities.USER_CURRENT_ITEM
 import java.text.SimpleDateFormat
 import java.util.*
 
@@ -19,4 +22,8 @@ import java.util.*
 class IndexViewModel(private val plantRepository: PlantRepository) :ViewModel(){
 
     val plants: LiveData<List<Plant>> = plantRepository.getPlants()
+
+    /*fun getTomorroySportData():LiveData<SportData>{
+        val currentPosition = SharePreferencesUtil.read(USER_CURRENT_ITEM, 0)
+    }*/
 }
