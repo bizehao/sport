@@ -36,7 +36,9 @@ class MainActivity : BaseActivity() {
         super.onCreate(savedInstanceState)
 
         viewModel = ViewModelProviders.of(this).get(MainViewModel::class.java)
-        viewModel.currentPosition.value = SharePreferencesUtil.read(USER_CURRENT_ITEM, 0)
+        val index = SharePreferencesUtil.read(USER_CURRENT_ITEM, 0)
+        viewModel.currentPosition.value = index
+        viewModel.nextPosition.value = index+1
         viewModel.currentPosition.observe(this, Observer {
             SharePreferencesUtil.save(USER_CURRENT_ITEM, it)
         })

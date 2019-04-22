@@ -41,10 +41,18 @@
                 app:layout_behavior="@string/appbar_scrolling_view_behavior"/>
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
+                android:id="@+id/float_btn"
                 android:layout_width="wrap_content"
+                android:clickable="true"
                 android:layout_height="wrap_content"
+                app:backgroundTint="@color/flooter_button_normal"
+                app:rippleColor = "@color/flooter_button_press"
                 android:layout_marginBottom="80dp"
+                app:elevation = "5dp"
+                app:pressedTranslationZ = "15dp"
                 android:layout_marginEnd="30dp"
+                android:src="@drawable/begin_48"
+                app:fabSize="normal"
                 android:layout_gravity="bottom|end"/>
 
     </androidx.coordinatorlayout.widget.CoordinatorLayout>

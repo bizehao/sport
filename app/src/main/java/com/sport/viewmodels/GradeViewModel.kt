@@ -31,6 +31,8 @@ class GradeViewModel internal constructor(private val repository: SportDataRepos
 
     private val sportMapOfLiveData = MutableLiveData<HashMap<Int, Int>>() //视图列表的等级划分数据
 
+    val nextId = MutableLiveData<Int>()
+
     //获取数据库里的数据
     fun getSportData() = repository.getSportData()
 
@@ -96,8 +98,10 @@ class GradeViewModel internal constructor(private val repository: SportDataRepos
             }
             SportExecutors.diskIO.execute {
                 repository.updateSportData(sportDataList)
+                nextId.postValue(currentPosition+1)
             }
             sportListOfLiveData.value = sportList
         }
+
     }
 }

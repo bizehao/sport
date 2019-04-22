@@ -45,12 +45,17 @@ class IndexViewModel(
 
     fun getSportDataCount() = sportDataRepository.getCountOfSportData()
 
+    fun handleNextInfo(nextPosition:Int){
+        SportExecutors.diskIO.execute {
+            val sport = sportDataRepository.getSportDataByIndex(nextPosition)
+            nextSport.postValue(sport)
+        }
+    }
+
     fun handleCurrentInfo(currentPosition: Int) {
         SportExecutors.diskIO.execute {
             val list1 = sportDataRepository.getCompletedSportData(currentPosition)
             val list2 = sportDataRepository.getSurplusSportData(currentPosition)
-            val sport = sportDataRepository.getSportDataByIndex(currentPosition + 1)
-            nextSport.postValue(sport)
 
             var totalCompletedPushUpNum = 0
             for (l1 in list1) {

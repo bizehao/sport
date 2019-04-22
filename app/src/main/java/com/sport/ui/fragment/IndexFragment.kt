@@ -52,10 +52,7 @@ class IndexFragment : Fragment() {
 
     @SuppressLint("SetTextI18n")
     private fun subscribeUi(binding: FragmentIndexBinding, context: Context) {
-        binding.beginSport.setOnClickListener {
-            val direction = SportFragmentDirections.actionSportFragmentToRunningFragment()
-            it.findNavController().navigate(direction)
-        }
+
         val adapter = PlantAdapter()
         binding.plantList.adapter = adapter
         binding.plantList.layoutManager = LinearLayoutManager(activity)
@@ -66,38 +63,9 @@ class IndexFragment : Fragment() {
             }
         })
 
-        binding.testBtn.setOnClickListener {
-            SportExecutors.diskIO.execute {
-                val database = AppDatabase.getInstance(context)
-                val list = database.sportDataDao().getSportData()
-                for (a in list) {
-                    Timber.e("数据展示 $a")
-                }
-            }
-        }
-
-        binding.chooseGrade.setOnClickListener {
-            val direction = SportFragmentDirections.actionSportFragmentToGradeFragment()
-            it.findNavController().navigate(direction)
-        }
-
-        binding.btnTest1.setOnClickListener {
-            /*val ll = HashMap<Int,Sport>()
-            val kk = Sport(1,true,5,56,true)
-            ll[1] = kk
-            ll[2] = kk
-            ll[3] = kk
-            val mm = Gson().toJson(ll)*/
-            val ss =
-                "{\"1\":{\"current\":true,\"dateTime\":\"\",\"grade\":5,\"id\":1,\"intervalTime\":56,\"isStartOfGroup\":true},\"2\":{\"current\":true,\"dateTime\":\"\",\"grade\":5,\"id\":1,\"intervalTime\":56,\"isStartOfGroup\":true},\"3\":{\"current\":true,\"dateTime\":\"\",\"grade\":5,\"id\":1,\"intervalTime\":56,\"isStartOfGroup\":true}}\n"
-            val dataType = object : TypeToken<HashMap<Int, Sport>>() {}.type
-            val tt = Gson().fromJson<HashMap<Int, Sport>>(ss, dataType)
-            for (l in tt) {
-                Timber.e(l.key.toString())
-                Timber.e(l.value.toString())
-                Timber.e("\n")
-            }
-        }
+        mainViewModel.nextPosition.observe(viewLifecycleOwner, Observer {
+            viewModel.handleNextInfo(it)
+        })
 
         mainViewModel.currentPosition.observe(viewLifecycleOwner, Observer {
             binding.current.text = (it + 1).toString()
@@ -126,6 +94,7 @@ class IndexFragment : Fragment() {
         })
 
         viewModel.nextSport.observe(viewLifecycleOwner, Observer {
+            Timber.e("时间 ${it.dateTime}")
             binding.nextSportTime.text = it.dateTime
             var total = 0
             val sport = StringBuilder()

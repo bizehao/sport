@@ -88,6 +88,10 @@ class GradeFragment : Fragment() {
             adapter.lise = it
             adapter.notifyDataSetChanged()
         })
+
+        viewModel.nextId.observe(viewLifecycleOwner, Observer {
+            mainViewModel.nextPosition.value = it
+        })
     }
 
 

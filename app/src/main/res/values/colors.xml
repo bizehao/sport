@@ -55,4 +55,6 @@
     <color name="plan_list_background">#ED7720</color>
     <color name="plan_item_background">#e9edf0</color>
     <color name="plan_item_text_color">#555553</color>
+    <color name="flooter_button_press">#B8B330</color>
+    <color name="flooter_button_normal">#FCF009</color>
 </resources>

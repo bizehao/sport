@@ -8,11 +8,13 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentPagerAdapter
 import androidx.lifecycle.ViewModelProviders
+import androidx.navigation.findNavController
 import com.google.android.material.tabs.TabLayout
 import com.sport.utilities.InjectorUtils
 import com.sport.databinding.FragmentSportBinding
 import com.sport.ui.activity.MainActivity
 import com.sport.viewmodels.SportViewModel
+import timber.log.Timber
 import kotlin.collections.ArrayList
 
 /**
@@ -27,7 +29,7 @@ class SportFragment : Fragment() {
 
     private lateinit var pagerAdapter: Adapter
 
-    private lateinit var mTabLayout: TabLayout
+    private var currentItem = 1
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         val binding = FragmentSportBinding.inflate(inflater, container, false)
@@ -42,18 +44,24 @@ class SportFragment : Fragment() {
         val activity = activity as MainActivity
         activity.setMainActivityActionBar(binding.toolbar)
         pagerAdapter = Adapter(childFragmentManager)
-        pagerAdapter.addFragment(DataFragment(),"数据")
-        pagerAdapter.addFragment(IndexFragment(),"主页")
-        pagerAdapter.addFragment(PlanFragment(),"计划")
+        pagerAdapter.addFragment(DataFragment(), "数据")
+        pagerAdapter.addFragment(IndexFragment(), "主页")
+        pagerAdapter.addFragment(PlanFragment(), "计划")
         binding.viewpager.adapter = pagerAdapter
         binding.viewpager.offscreenPageLimit = 3
-        binding.viewpager.currentItem = 1
+        binding.viewpager.currentItem = currentItem
         binding.tabs.setupWithViewPager(binding.viewpager)
-        binding.tabs.addOnTabSelectedListener(object : TabLayout.ViewPagerOnTabSelectedListener(binding.viewpager){
+        binding.tabs.addOnTabSelectedListener(object : TabLayout.ViewPagerOnTabSelectedListener(binding.viewpager) {
             override fun onTabSelected(tab: TabLayout.Tab?) {
                 super.onTabSelected(tab)
+                if (tab != null) {
+                    currentItem = tab.position
+                }
             }
         })
+        binding.floatBtn.setOnClickListener {
+            switchEvent(it,currentItem)
+        }
     }
 
     internal class Adapter(fm: FragmentManager) : FragmentPagerAdapter(fm) {
@@ -77,5 +85,19 @@ class SportFragment : Fragment() {
         override fun getPageTitle(position: Int): CharSequence? {
             return mFragmentTitles[position]
         }
+    }
+
+    private fun switchEvent(view: View, id: Int) {
+        when (id) {
+            0 -> {
+            }
+            1 -> {
+                val direction = SportFragmentDirections.actionSportFragmentToRunningFragment()
+                view.findNavController().navigate(direction)
+            }
+            2 -> {
+            }
+        }
+
     }
 }

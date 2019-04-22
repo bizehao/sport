@@ -13,4 +13,6 @@ class MainViewModel : ViewModel() {
 
     val currentPosition = MutableLiveData<Int>()
 
+    val nextPosition = MutableLiveData<Int>()
+
 }
