@@ -53,7 +53,8 @@ object InjectorUtils {
      */
     private fun getPlantRepository(context: Context): PlantRepository {
         return PlantRepository.getInstance(
-            AppDatabase.getInstance(context.applicationContext).plantDao())
+            AppDatabase.getInstance(context.applicationContext).plantDao()
+        )
     }
 
     /**
@@ -61,7 +62,8 @@ object InjectorUtils {
      */
     private fun getSportDataRepository(context: Context): SportDataRepository {
         return SportDataRepository.getInstance(
-            AppDatabase.getInstance(context.applicationContext).sportDataDao())
+            AppDatabase.getInstance(context.applicationContext).sportDataDao()
+        )
     }
 
 //数据工厂
@@ -71,7 +73,7 @@ object InjectorUtils {
     /**
      * 获取运动界面的ViewModel的构造工厂
      */
-    fun provideSportViewModelFactory(context: Context) : CommonViewModelFactory<SportViewModel> {
+    fun provideSportViewModelFactory(context: Context): CommonViewModelFactory<SportViewModel> {
         val sportInfoRepository = getSportInfoRepository(context)
         val personRepository = getPersonRepository(context)
         return CommonViewModelFactory(SportViewModel(sportInfoRepository, personRepository))
@@ -80,7 +82,7 @@ object InjectorUtils {
     /**
      * 获取运动信息展示的ViewModel的构造工厂
      */
-    fun provideComparedViewModelFactory(context: Context) : CommonViewModelFactory<ComparedViewModel> {
+    fun provideComparedViewModelFactory(context: Context): CommonViewModelFactory<ComparedViewModel> {
         val repository = getSportInfoRepository(context)
         return CommonViewModelFactory(ComparedViewModel(repository))
     }
@@ -89,8 +91,9 @@ object InjectorUtils {
      * 获取运动主界面的ViewModel的构造工厂
      */
     fun provideIndexViewModelFactory(context: Context): CommonViewModelFactory<IndexViewModel> {
-        val repository = getPlantRepository(context)
-        return CommonViewModelFactory(IndexViewModel(repository))
+        val plantRepository = getPlantRepository(context)
+        val sportDataRepository = getSportDataRepository(context)
+        return CommonViewModelFactory(IndexViewModel(plantRepository, sportDataRepository))
     }
 
     /**

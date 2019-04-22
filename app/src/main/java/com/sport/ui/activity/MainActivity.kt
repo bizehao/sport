@@ -6,12 +6,18 @@ import android.os.Bundle
 import androidx.appcompat.widget.Toolbar
 import androidx.core.view.GravityCompat
 import androidx.drawerlayout.widget.DrawerLayout
+import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProviders
 import androidx.navigation.NavController
 import androidx.navigation.Navigation
 import androidx.navigation.ui.*
 import com.sport.R
 import com.sport.common.ui.BaseActivity
 import com.sport.databinding.ActivityMainBinding
+import com.sport.utilities.SharePreferencesUtil
+import com.sport.utilities.USER_CURRENT_ITEM
+import com.sport.viewmodels.IndexViewModel
+import com.sport.viewmodels.MainViewModel
 import kotlinx.android.synthetic.main.activity_main.*
 
 /**
@@ -24,8 +30,16 @@ class MainActivity : BaseActivity() {
     private lateinit var navController: NavController
     private lateinit var drawerLayout: DrawerLayout
 
+    private lateinit var viewModel: MainViewModel
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        viewModel = ViewModelProviders.of(this).get(MainViewModel::class.java)
+        viewModel.currentPosition.value = SharePreferencesUtil.read(USER_CURRENT_ITEM, 0)
+        viewModel.currentPosition.observe(this, Observer {
+            SharePreferencesUtil.save(USER_CURRENT_ITEM, it)
+        })
 
         val binding: ActivityMainBinding = setLayout(R.layout.activity_main)
         drawerLayout = binding.drawerLayout
@@ -58,7 +72,7 @@ class MainActivity : BaseActivity() {
         }
     }
 
-    fun setMainActivityActionBar(toolbar: Toolbar){
+    fun setMainActivityActionBar(toolbar: Toolbar) {
         setSupportActionBar(toolbar);
         setupActionBarWithNavController(navController, appBarConfiguration)
     }

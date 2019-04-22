@@ -27,7 +27,7 @@ class RunningViewModel(private val sportDataRepository: SportDataRepository) : V
     //获取当前的运动信息
     fun getCurrentSport(): LiveData<Resource<SportData>> {
         val id = SharePreferencesUtil.read(USER_CURRENT_ITEM, 0)
-        return sportDataRepository.getSportDataByid(id)
+        return sportDataRepository.getSportDataById(id)
     }
 
 }

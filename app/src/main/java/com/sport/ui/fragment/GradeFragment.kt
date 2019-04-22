@@ -22,6 +22,7 @@ import java.util.*
 import android.graphics.*
 import android.text.TextPaint
 import android.graphics.Typeface
+import com.sport.viewmodels.MainViewModel
 import timber.log.Timber
 import kotlin.collections.HashMap
 
@@ -34,12 +35,14 @@ import kotlin.collections.HashMap
 class GradeFragment : Fragment() {
 
     private lateinit var viewModel: GradeViewModel
+    private lateinit var mainViewModel: MainViewModel
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         val binding = FragmentGradeBinding.inflate(inflater, container, false)
         val context = context ?: return binding.root
         val factory = InjectorUtils.provideGradeViewModelFactory(context)
         viewModel = ViewModelProviders.of(this, factory).get(GradeViewModel::class.java)
+        mainViewModel = ViewModelProviders.of(activity!!).get(MainViewModel::class.java)
         subscribeUi(binding, context)
         return binding.root
     }
@@ -62,13 +65,17 @@ class GradeFragment : Fragment() {
             }
         }))
 
+        mainViewModel.currentPosition.observe(viewLifecycleOwner, Observer {
+            viewModel.changeSportListOfTime(it)
+        })
+
         /**
          * 获取俯卧撑基本数据
          */
         viewModel.getSportData().observe(viewLifecycleOwner, Observer {
             if (it.status == 0 && it.data != null) {
                 viewModel.setSportViewData(it.data)
-            }else{
+            } else {
                 Timber.e("正在加载数据中")
             }
         })
@@ -125,8 +132,7 @@ class GradeFragment : Fragment() {
 
             holder.getBinding().layoutTouch.setOnClickListener {
                 if (position != indexOfSelectedOnBefore) {
-                    SharePreferencesUtil.save(USER_CURRENT_ITEM, position)
-                    viewModel.changeSportListOfTime(position)
+                    mainViewModel.currentPosition.value = position
                 }
             }
         }

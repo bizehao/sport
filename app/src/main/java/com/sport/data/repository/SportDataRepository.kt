@@ -19,9 +19,20 @@ class SportDataRepository private constructor(private val sportDataDao: SportDat
 
     fun getSportData() = DataModelHandle.getData { sportDataDao.getSportData() }
 
-    fun getSportDataByid(id: Int) = DataModelHandle.getData { sportDataDao.getSportDataById(id) }
+    fun getSportDataById(id: Int) = DataModelHandle.getData { sportDataDao.getSportDataById(id)}
 
-    fun updateSportData(list: List<SportData>){
+    fun getSportDataByIndex(id: Int) = sportDataDao.getSportDataById(id)
+
+
+    fun getCountOfSportData() = sportDataDao.getCountOfSportData()
+
+    fun getDateTimeOfLast() = sportDataDao.getDateTimeOfLast()
+
+    fun getCompletedSportData(id: Int) = sportDataDao.getCompletedSportData(id)
+
+    fun getSurplusSportData(id: Int) = sportDataDao.getSurplusSportData(id)
+
+    fun updateSportData(list: List<SportData>) {
         SportExecutors.diskIO.execute {
             sportDataDao.updateAll(list)
         }

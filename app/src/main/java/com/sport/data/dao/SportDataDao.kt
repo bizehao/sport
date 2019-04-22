@@ -1,5 +1,6 @@
 package com.sport.data.dao
 
+import androidx.lifecycle.LiveData
 import androidx.room.*
 import com.sport.data.table.SportData
 
@@ -15,8 +16,20 @@ interface SportDataDao {
     @Query("select * from sport_data")
     fun getSportData(): List<SportData>
 
-    @Query("select * from sport_data where id =:id")
+    @Query("select * from sport_data where id = :id")
     fun getSportDataById(id: Int): SportData
+
+    @Query("select count(*) from sport_data")
+    fun getCountOfSportData(): LiveData<Int>
+
+    @Query("select MAX(date_time) from sport_data")
+    fun getDateTimeOfLast(): LiveData<String>
+
+    @Query("select * from sport_data where id < :id")
+    fun getCompletedSportData(id: Int): List<SportData>
+
+    @Query("select * from sport_data where id >= :id")
+    fun getSurplusSportData(id: Int): List<SportData>
 
     @Update
     fun updateAll(sportData: List<SportData>)

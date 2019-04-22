@@ -28,6 +28,10 @@ import timber.log.Timber
 import java.lang.StringBuilder
 import androidx.lifecycle.Observer
 import com.sport.utilities.InjectorUtils
+import com.sport.utilities.SharePreferencesUtil
+import com.sport.utilities.SportExecutors
+import com.sport.utilities.USER_CURRENT_ITEM
+import com.sport.viewmodels.MainViewModel
 import java.util.*
 import kotlin.collections.ArrayList
 
@@ -44,6 +48,7 @@ class RunningFragment : Fragment() {
     private lateinit var binding: FragmentRunningBinding
 
     private lateinit var viewModel: RunningViewModel
+    private lateinit var mainViewModel: MainViewModel
     private var initReadyCount = 80
     private var isReception: Boolean = false //是否在前台
     private var isMonitor: Boolean = false //是否开始传感器
@@ -51,6 +56,8 @@ class RunningFragment : Fragment() {
     private var currentIndexCount = 0 //当前位置的数量
     private var timer: Timer? = null //计时器
     private lateinit var adapter: Adapter
+
+    private var readyNum = 0
 
 
     //传感器监听事件
@@ -73,6 +80,8 @@ class RunningFragment : Fragment() {
         val context = context ?: return binding.root
         val factory = InjectorUtils.provideRunningViewModelFactory(context)
         viewModel = ViewModelProviders.of(this, factory).get(RunningViewModel::class.java)
+        mainViewModel = ViewModelProviders.of(activity!!).get(MainViewModel::class.java)
+
         val activity = activity as MainActivity
         activity.setMainActivityActionBar(binding.toolbar)
         subscribeUi(binding, context)
@@ -100,6 +109,10 @@ class RunningFragment : Fragment() {
         adapter = Adapter()
         binding.recyclerView.adapter = adapter
         binding.recyclerView.layoutManager = LinearLayoutManager(activity, LinearLayout.HORIZONTAL, false)
+
+        binding.jumpTime.setOnClickListener {
+            readyNum = 0
+        }
 
         viewModel.getCurrentSport().observe(viewLifecycleOwner, Observer {
             if (it.status == 0 && it.data != null) {
@@ -135,7 +148,7 @@ class RunningFragment : Fragment() {
         //执行倒计时
         viewModel.intervalTime.observe(viewLifecycleOwner, Observer {
             Timber.e("开始倒计时")
-            var readyNum = it
+            readyNum = it
             binding.readyCount = it
             binding.countDown = true
             binding.beginSport = false
@@ -144,7 +157,7 @@ class RunningFragment : Fragment() {
             timer.schedule(object : TimerTask() {
                 override fun run() {
                     binding.readyCount = readyNum--
-                    if (readyNum == -1) {
+                    if (readyNum <= -1) {
                         Thread.sleep(500)
                         timer.cancel()
                         binding.countDown = false
@@ -161,13 +174,18 @@ class RunningFragment : Fragment() {
         viewModel.sportNum.observe(viewLifecycleOwner, Observer {
             Timber.e("开始俯卧撑")
             if (it == 0 && currentIndex == adapter.getList().size - 1) {
+                Timber.e("俯卧撑完毕")
                 adapter.updateStatus(currentIndex, false)
                 viewModel.sportTime.postValue(false)
-                binding.ready.visibility = View.GONE
+                binding.readyLayout.visibility = View.GONE
                 binding.success.visibility = View.VISIBLE
                 binding.countDown = true
                 binding.beginSport = false
                 mSenserManager.unregisterListener(listener)
+                SportExecutors.diskIO.execute {
+                    val index = SharePreferencesUtil.read(USER_CURRENT_ITEM, 0)
+                    mainViewModel.currentPosition.postValue(index + 1)
+                }
                 return@Observer
             }
             if (it == 0) {
@@ -230,8 +248,7 @@ class RunningFragment : Fragment() {
         }
     }
 
-    inner class Adapter :
-        CommomAdapter<IteratorSport, ListHeaderBinding>() {
+    inner class Adapter : CommomAdapter<IteratorSport, ListHeaderBinding>() {
 
         override fun onSetBinding(parent: ViewGroup): ListHeaderBinding {
             return ListHeaderBinding.inflate(LayoutInflater.from(parent.context), parent, false)
