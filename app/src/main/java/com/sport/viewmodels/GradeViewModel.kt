@@ -68,7 +68,7 @@ class GradeViewModel internal constructor(private val repository: SportDataRepos
                 mSport.isStartOfGroup = false
             }
             mSport.dateTime = s.dateTime
-            if (mSport.id == currentPosition && mSport.dateTime != "") {
+            if (mSport.id == currentPosition) {
                 mSport.current = true
             }
             sportList.add(mSport)
@@ -76,7 +76,7 @@ class GradeViewModel internal constructor(private val repository: SportDataRepos
             if (xx != null) map1[s.grade] = xx + 1
         }
         sportMapOfLiveData.value = map1
-        if (currentPosition == 0 && sportList.get(currentPosition).dateTime == "") {
+        if (currentPosition == 0 && sportList[0].dateTime == "") {
             changeSportListOfTime(sportList, currentPosition);
         } else {
             sportListOfLiveData.value = sportList
