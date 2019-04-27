@@ -1,7 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-              android:orientation="vertical"
-              android:layout_width="match_parent"
-              android:layout_height="match_parent">
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
 
-</LinearLayout>
+        <Button android:id="@+id/test_1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="测试1"/>
+        <Button android:id="@+id/test_2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="测试2"/>
+        <Button android:id="@+id/test_3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="测试3"/>
+        <Button android:id="@+id/test_4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="测试4"/>
+        <Button android:id="@+id/test_5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="测试5"/>
+
+    </LinearLayout>
+</layout>

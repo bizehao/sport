@@ -19,6 +19,10 @@ class SportApplication : Application() {
         if (BuildConfig.DEBUG) {
             Timber.plant(Timber.DebugTree())
         }
+
+        // Used to load the 'native-lib' library on application startup.
+        System.loadLibrary("native-lib");
+
     }
 
     companion object {

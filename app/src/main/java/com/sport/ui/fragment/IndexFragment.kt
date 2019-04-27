@@ -73,12 +73,17 @@ class IndexFragment : Fragment() {
         })
 
         viewModel.dateTimeOfLast.observe(viewLifecycleOwner, Observer {
-            val dataFormat = SimpleDateFormat("MM-dd")
-            val lastDataTime = dataFormat.parse(it)
-            val date = Date()
-            val currentDataTime = dataFormat.parse(dataFormat.format(date))
-            val days = (lastDataTime.time - currentDataTime.time) / (1000 * 3600 * 24)
-            binding.targetDays.text = days.toString()
+            val days: String
+            if(it != ""){
+                val dataFormat = SimpleDateFormat("MM-dd")
+                val lastDataTime = dataFormat.parse(it)
+                val date = Date()
+                val currentDataTime = dataFormat.parse(dataFormat.format(date))
+                days = ((lastDataTime.time - currentDataTime.time) / (1000 * 3600 * 24)).toString()
+            }else{
+                days = ""
+            }
+            binding.targetDays.text = days
         })
 
         viewModel.completed.observe(viewLifecycleOwner, Observer {

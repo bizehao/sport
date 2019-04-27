@@ -66,7 +66,7 @@ class GradeFragment : Fragment() {
         }))
 
         mainViewModel.currentPosition.observe(viewLifecycleOwner, Observer {
-            viewModel.changeSportListOfTime(it)
+            viewModel.changeSportListOfTime(viewModel.getSportViewData().value,it)
         })
 
         /**
@@ -74,7 +74,7 @@ class GradeFragment : Fragment() {
          */
         viewModel.getSportData().observe(viewLifecycleOwner, Observer {
             if (it.status == 0 && it.data != null) {
-                viewModel.setSportViewData(it.data)
+                viewModel.setSportViewData(it.data,mainViewModel.currentPosition.value!!)
             } else {
                 Timber.e("正在加载数据中")
             }

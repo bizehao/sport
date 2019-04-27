@@ -41,8 +41,7 @@ class GradeViewModel internal constructor(private val repository: SportDataRepos
     fun getSportMapOfLiveData() = sportMapOfLiveData
 
     //设置列表数据
-    fun setSportViewData(data: List<SportData>) {
-        val currentPosition = SharePreferencesUtil.read(USER_CURRENT_ITEM, 0)
+    fun setSportViewData(data: List<SportData>, currentPosition: Int) {
         sportDataList = data
         val sportList: ArrayList<Sport> = ArrayList()
         val map1: HashMap<Int, Int> = HashMap()
@@ -77,12 +76,15 @@ class GradeViewModel internal constructor(private val repository: SportDataRepos
             if (xx != null) map1[s.grade] = xx + 1
         }
         sportMapOfLiveData.value = map1
-        sportListOfLiveData.value = sportList
+        if (currentPosition == 0 && sportList.get(currentPosition).dateTime == "") {
+            changeSportListOfTime(sportList, currentPosition);
+        } else {
+            sportListOfLiveData.value = sportList
+        }
     }
 
     //改变时间列表 当前项
-    fun changeSportListOfTime(currentPosition: Int) {
-        val sportList = sportListOfLiveData.value
+    fun changeSportListOfTime(sportList: ArrayList<Sport>?, currentPosition: Int) {
         if (sportList != null) {
             val calendar = Calendar.getInstance()
             calendar.add(Calendar.DATE, -2)
@@ -98,7 +100,7 @@ class GradeViewModel internal constructor(private val repository: SportDataRepos
             }
             SportExecutors.diskIO.execute {
                 repository.updateSportData(sportDataList)
-                nextId.postValue(currentPosition+1)
+                nextId.postValue(currentPosition + 1)
             }
             sportListOfLiveData.value = sportList
         }

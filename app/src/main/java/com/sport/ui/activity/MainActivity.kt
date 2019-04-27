@@ -15,6 +15,7 @@ import com.sport.R
 import com.sport.common.ui.BaseActivity
 import com.sport.databinding.ActivityMainBinding
 import com.sport.utilities.SharePreferencesUtil
+import com.sport.utilities.SportExecutors
 import com.sport.utilities.USER_CURRENT_ITEM
 import com.sport.viewmodels.IndexViewModel
 import com.sport.viewmodels.MainViewModel
@@ -40,7 +41,9 @@ class MainActivity : BaseActivity() {
         viewModel.currentPosition.value = index
         viewModel.nextPosition.value = index+1
         viewModel.currentPosition.observe(this, Observer {
-            SharePreferencesUtil.save(USER_CURRENT_ITEM, it)
+            SportExecutors.diskIO.execute {
+                SharePreferencesUtil.save(USER_CURRENT_ITEM, it)
+            }
         })
 
         val binding: ActivityMainBinding = setLayout(R.layout.activity_main)
