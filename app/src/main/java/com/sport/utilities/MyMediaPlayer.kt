@@ -10,7 +10,7 @@ import android.media.MediaPlayer
  * Time: 上午8:47
  * Description: 交替播放两种不同的声音，对应俯卧撑的 向下 向上
  */
-class MyMediaPlayer(val context: Context, val down: Int, val up: Int) {
+class MyMediaPlayer(val context: Context) {
 
     private val mediaPlayer = MediaPlayer()
 
@@ -29,21 +29,11 @@ class MyMediaPlayer(val context: Context, val down: Int, val up: Int) {
     }
 
     /**
-     * 播放向下的声音
+     * 播放声音
      */
-    fun playSoundOfDown() {
+    fun playSound(sound: Int) {
         mediaPlayer.reset()
-        val afd = context.resources.openRawResourceFd(down)
-        mediaPlayer.setDataSource(afd.fileDescriptor, afd.startOffset, afd.length)
-        mediaPlayer.prepareAsync()
-    }
-
-    /**
-     * 播放向上的声音
-     */
-    fun playSoundOfUp() {
-        mediaPlayer.reset()
-        val afd = context.resources.openRawResourceFd(up)
+        val afd = context.resources.openRawResourceFd(sound)
         mediaPlayer.setDataSource(afd.fileDescriptor, afd.startOffset, afd.length)
         mediaPlayer.prepareAsync()
     }
@@ -51,7 +41,7 @@ class MyMediaPlayer(val context: Context, val down: Int, val up: Int) {
     /**
      * 销毁
      */
-    fun destroy(){
+    fun destroy() {
         mediaPlayer.release()
     }
 }
