@@ -6,6 +6,8 @@ import android.hardware.Sensor
 import android.hardware.SensorEvent
 import android.hardware.SensorEventListener
 import android.hardware.SensorManager
+import android.media.MediaPlayer
+import android.net.Uri
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -59,7 +61,6 @@ class RunningFragment : Fragment() {
 
     private var readyNum = 0
 
-
     //传感器监听事件
     private val listener = object : SensorEventListener {
         override fun onSensorChanged(event: SensorEvent) { //当传感器监测到的数值发生变化时
@@ -99,6 +100,7 @@ class RunningFragment : Fragment() {
     }
 
     private fun subscribeUi(binding: FragmentRunningBinding, context: Context) {
+
         //注册传感器监听
         mSenserManager = context.getSystemService(Context.SENSOR_SERVICE) as SensorManager//获取感应器服务
         //TYPE_ACCELEROMETER:加速度传感器;TYPE_LIGHT:获取光线传感器;TYPE_GYROSCOPE:陀螺仪传感器;TYPE_AMBIENT_TEMPERATURE:温度传感器

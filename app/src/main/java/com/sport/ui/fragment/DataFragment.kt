@@ -1,6 +1,10 @@
 package com.sport.ui.fragment
 
 import android.content.Context
+import android.media.AudioAttributes
+import android.media.AudioManager
+import android.media.MediaPlayer
+import android.net.Uri
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -12,6 +16,7 @@ import com.sport.databinding.FragmentDataBinding
 import com.sport.databinding.FragmentIndexBinding
 import com.sport.natives.DataHandle
 import com.sport.utilities.InjectorUtils
+import com.sport.utilities.MyMediaPlayer
 import com.sport.viewmodels.IndexViewModel
 import com.sport.viewmodels.MainViewModel
 import timber.log.Timber
@@ -38,6 +43,16 @@ class DataFragment : Fragment() {
             Timber.e("测试一下")
             val ss = DataHandle.say();
             Timber.e(ss)
+        }
+
+        val myplay = MyMediaPlayer(context, R.raw.dida, R.raw.qinshi)
+
+        binding.test2.setOnClickListener {
+            myplay.playSoundOfDown()
+        }
+
+        binding.test3.setOnClickListener {
+            myplay.playSoundOfUp()
         }
     }
 }

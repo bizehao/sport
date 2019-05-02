@@ -3,6 +3,7 @@ package com.sport.ui.activity
 import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
+import android.view.WindowManager
 import androidx.appcompat.widget.Toolbar
 import androidx.core.view.GravityCompat
 import androidx.drawerlayout.widget.DrawerLayout
@@ -35,7 +36,8 @@ class MainActivity : BaseActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
+        //防止屏幕熄灭
+        window.addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
         viewModel = ViewModelProviders.of(this).get(MainViewModel::class.java)
         val index = SharePreferencesUtil.read(USER_CURRENT_ITEM, 0)
         viewModel.currentPosition.value = index
