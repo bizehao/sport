@@ -100,7 +100,7 @@ class GradeViewModel internal constructor(private val repository: SportDataRepos
             }
             SportExecutors.diskIO.execute {
                 repository.updateSportData(sportDataList)
-                nextId.postValue(currentPosition + 1)
+                nextId.postValue(currentPosition)
             }
             sportListOfLiveData.value = sportList
         }

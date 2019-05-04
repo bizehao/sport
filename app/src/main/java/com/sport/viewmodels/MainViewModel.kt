@@ -11,8 +11,7 @@ import androidx.lifecycle.ViewModel
  */
 class MainViewModel : ViewModel() {
 
+    //当前的等级
     val currentPosition = MutableLiveData<Int>()
-
-    val nextPosition = MutableLiveData<Int>()
 
 }

@@ -41,7 +41,6 @@ class MainActivity : BaseActivity() {
         viewModel = ViewModelProviders.of(this).get(MainViewModel::class.java)
         val index = SharePreferencesUtil.read(USER_CURRENT_ITEM, 0)
         viewModel.currentPosition.value = index
-        viewModel.nextPosition.value = index+1
         viewModel.currentPosition.observe(this, Observer {
             SportExecutors.diskIO.execute {
                 SharePreferencesUtil.save(USER_CURRENT_ITEM, it)

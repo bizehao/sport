@@ -17,6 +17,7 @@ import com.sport.utilities.USER_CURRENT_ITEM
 import timber.log.Timber
 import java.text.SimpleDateFormat
 import java.util.*
+import kotlin.collections.HashMap
 
 /**
  * User: bizehao
@@ -29,33 +30,25 @@ class IndexViewModel(
     private val sportDataRepository: SportDataRepository
 ) : ViewModel() {
 
+    //日志数据
     val plants: LiveData<List<Plant>> = plantRepository.getPlants()
 
     //距目标时间
     val dateTimeOfLast: LiveData<String> = sportDataRepository.getDateTimeOfLast()
 
-    //已完成
-    val completed = MutableLiveData<Int>()
-
-    //还剩余
-    val surplus = MutableLiveData<Int>()
-
-    //下一次训练
-    var nextSport  = MutableLiveData<SportData>()
-
+    //获取多少个等级
     fun getSportDataCount() = sportDataRepository.getCountOfSportData()
 
-    fun handleNextInfo(nextPosition:Int){
-        SportExecutors.diskIO.execute {
-            val sport = sportDataRepository.getSportDataByIndex(nextPosition)
-            nextSport.postValue(sport)
-        }
-    }
+    //界面数据的处理
+    fun handleCurrentInfo(currentPosition: Int): LiveData<Map<String, Any>> {
 
-    fun handleCurrentInfo(currentPosition: Int) {
+        //界面数据集
+        val dataMap = MutableLiveData<Map<String, Any>>()
+
         SportExecutors.diskIO.execute {
             val list1 = sportDataRepository.getCompletedSportData(currentPosition)
             val list2 = sportDataRepository.getSurplusSportData(currentPosition)
+            val sportData = sportDataRepository.getSportDataByIndex(currentPosition)
 
             var totalCompletedPushUpNum = 0
             for (l1 in list1) {
@@ -63,7 +56,6 @@ class IndexViewModel(
                     totalCompletedPushUpNum += s1.pushUpNum
                 }
             }
-            completed.postValue(totalCompletedPushUpNum)
 
             var totalSurplusPushUpNum = 0
             for (l2 in list2) {
@@ -71,8 +63,14 @@ class IndexViewModel(
                     totalSurplusPushUpNum += s2.pushUpNum
                 }
             }
-            surplus.postValue(totalSurplusPushUpNum)
+
+            val map = HashMap<String, Any>()
+            map["totalCompletedPushUpNum"] = totalCompletedPushUpNum //已完成的总数量
+            map["totalSurplusPushUpNum"] = totalSurplusPushUpNum //剩余总数量
+            map["nextData"] = sportData //剩余总数量
+            dataMap.postValue(map)
         }
+        return dataMap;
     }
 
 }

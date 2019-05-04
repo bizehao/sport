@@ -103,6 +103,13 @@
                         android:textColor="@color/black"
                         android:textSize="25sp"
                         android:textStyle="bold"/>
+
+                <Switch android:id="@+id/sound_choose"
+                        android:layout_width="50dp"
+                        android:layout_height="wrap_content"
+                        android:shadowColor="@color/white"
+                        android:layout_marginTop="20dp"
+                />
             </LinearLayout>
 
             <TextView

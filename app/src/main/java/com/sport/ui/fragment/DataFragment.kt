@@ -39,7 +39,16 @@ class DataFragment : Fragment() {
         val myplay = MyMediaPlayer(context)
 
         binding.test2.setOnClickListener {
-            myplay.playSound(R.raw.qinshi)
+            myplay.playSound(R.raw.ding)
+        }
+        binding.test3.setOnClickListener {
+            myplay.playSound(R.raw.dong)
+        }
+        binding.test4.setOnClickListener {
+            myplay.playSound(R.raw.huqi)
+        }
+        binding.test5.setOnClickListener {
+            myplay.playSound(R.raw.xiqi)
         }
     }
 }

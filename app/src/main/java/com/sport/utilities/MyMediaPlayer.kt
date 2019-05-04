@@ -10,7 +10,7 @@ import android.media.MediaPlayer
  * Time: 上午8:47
  * Description: 交替播放两种不同的声音，对应俯卧撑的 向下 向上
  */
-class MyMediaPlayer(val context: Context) {
+class MyMediaPlayer(private val context: Context) {
 
     private val mediaPlayer = MediaPlayer()
 

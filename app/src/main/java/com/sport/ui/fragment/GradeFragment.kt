@@ -65,8 +65,8 @@ class GradeFragment : Fragment() {
             }
         }))
 
-        mainViewModel.currentPosition.observe(viewLifecycleOwner, Observer {
-            viewModel.changeSportListOfTime(viewModel.getSportViewData().value,it)
+        viewModel.nextId.observe(viewLifecycleOwner, Observer {
+            mainViewModel.currentPosition.value = it
         })
 
         /**
@@ -74,7 +74,7 @@ class GradeFragment : Fragment() {
          */
         viewModel.getSportData().observe(viewLifecycleOwner, Observer {
             if (it.status == 0 && it.data != null) {
-                viewModel.setSportViewData(it.data,mainViewModel.currentPosition.value!!)
+                viewModel.setSportViewData(it.data, mainViewModel.currentPosition.value!!)
             } else {
                 Timber.e("正在加载数据中")
             }
@@ -87,10 +87,6 @@ class GradeFragment : Fragment() {
         viewModel.getSportViewData().observe(viewLifecycleOwner, Observer {
             adapter.lise = it
             adapter.notifyDataSetChanged()
-        })
-
-        viewModel.nextId.observe(viewLifecycleOwner, Observer {
-            mainViewModel.nextPosition.value = it
         })
     }
 
@@ -136,7 +132,7 @@ class GradeFragment : Fragment() {
 
             holder.getBinding().layoutTouch.setOnClickListener {
                 if (position != indexOfSelectedOnBefore) {
-                    mainViewModel.currentPosition.value = position
+                    viewModel.changeSportListOfTime(viewModel.getSportViewData().value, position)
                 }
             }
         }

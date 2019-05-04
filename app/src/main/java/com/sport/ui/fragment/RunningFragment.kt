@@ -29,10 +29,8 @@ import com.sport.viewmodels.RunningViewModel
 import timber.log.Timber
 import java.lang.StringBuilder
 import androidx.lifecycle.Observer
-import com.sport.utilities.InjectorUtils
-import com.sport.utilities.SharePreferencesUtil
-import com.sport.utilities.SportExecutors
-import com.sport.utilities.USER_CURRENT_ITEM
+import com.sport.SportApplication.Companion.context
+import com.sport.utilities.*
 import com.sport.viewmodels.MainViewModel
 import java.util.*
 import kotlin.collections.ArrayList
@@ -61,20 +59,7 @@ class RunningFragment : Fragment() {
 
     private var readyNum = 0
 
-    //传感器监听事件
-    private val listener = object : SensorEventListener {
-        override fun onSensorChanged(event: SensorEvent) { //当传感器监测到的数值发生变化时
-            if (event.sensor.type == Sensor.TYPE_PROXIMITY) {
-                if (isReception && isMonitor && event.values[0] > 0) {
-                    viewModel.sportNum.value = --currentIndexCount
-                }
-            }
-        }
-
-        override fun onAccuracyChanged(sensor: Sensor, accuracy: Int) { //当感应器精度发生变化
-
-        }
-    }
+    private lateinit var listener:MyListener
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         binding = FragmentRunningBinding.inflate(inflater, container, false)
@@ -100,6 +85,8 @@ class RunningFragment : Fragment() {
     }
 
     private fun subscribeUi(binding: FragmentRunningBinding, context: Context) {
+
+        listener = MyListener(context)
 
         //注册传感器监听
         mSenserManager = context.getSystemService(Context.SENSOR_SERVICE) as SensorManager//获取感应器服务
@@ -181,6 +168,7 @@ class RunningFragment : Fragment() {
                 viewModel.sportTime.postValue(false)
                 binding.readyLayout.visibility = View.GONE
                 binding.success.visibility = View.VISIBLE
+                binding.finish.text = "我已完成"
                 binding.countDown = true
                 binding.beginSport = false
                 mSenserManager.unregisterListener(listener)
@@ -223,7 +211,7 @@ class RunningFragment : Fragment() {
     override fun onDestroy() {
         super.onDestroy()
         //注销监听器
-        mSenserManager.unregisterListener(listener)
+        listener.destroy()
         if (timer != null) {
             timer!!.purge()
         }
@@ -250,6 +238,7 @@ class RunningFragment : Fragment() {
         }
     }
 
+    //运动列表适配器类
     inner class Adapter : CommomAdapter<IteratorSport, ListHeaderBinding>() {
 
         override fun onSetBinding(parent: ViewGroup): ListHeaderBinding {
@@ -272,6 +261,44 @@ class RunningFragment : Fragment() {
         fun updateStatus(index: Int, status: Boolean) {
             getList()[index].current = status
             notifyItemChanged(index)
+        }
+    }
+
+    //传感器监听事件类
+    inner class MyListener(context: Context) : SensorEventListener {
+
+        val myplay1 = MyMediaPlayer(context)
+        val myplay2 = MyMediaPlayer(context)
+
+        override fun onSensorChanged(event: SensorEvent) { //当传感器监测到的数值发生变化时
+
+            if (event.sensor.type == Sensor.TYPE_PROXIMITY && isReception && isMonitor) {
+                if (event.values[0] > 0) { //上来
+                    if(binding.soundChoose.isChecked){
+                        myplay1.playSound(R.raw.dong)
+                    }else{
+                        myplay2.playSound(R.raw.xiqi)
+                    }
+                    viewModel.sportNum.value = --currentIndexCount
+                } else { //下去
+                    if(binding.soundChoose.isChecked){
+                        myplay1.playSound(R.raw.ding)
+                    }else{
+                        myplay2.playSound(R.raw.huqi)
+                    }
+                }
+            }
+        }
+
+        override fun onAccuracyChanged(sensor: Sensor, accuracy: Int) { //当感应器精度发生变化
+
+        }
+
+        fun destroy(){
+            myplay1.destroy()
+            myplay2.destroy()
+            //注销监听器
+            mSenserManager.unregisterListener(listener)
         }
     }
 }

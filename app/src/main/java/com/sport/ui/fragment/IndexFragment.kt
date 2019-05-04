@@ -16,6 +16,7 @@ import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
 import com.sport.common.adapter.PlantAdapter
 import com.sport.data.AppDatabase
+import com.sport.data.table.SportData
 import com.sport.databinding.FragmentIndexBinding
 import com.sport.model.Sport
 import com.sport.utilities.InjectorUtils
@@ -32,7 +33,7 @@ import kotlin.collections.HashMap
  * User: bizehao
  * Date: 2019-03-20
  * Time: 上午9:51
- * Description:
+ * Description: 主页界面
  */
 class IndexFragment : Fragment() {
 
@@ -57,59 +58,63 @@ class IndexFragment : Fragment() {
         binding.plantList.adapter = adapter
         binding.plantList.layoutManager = LinearLayoutManager(activity)
 
+        //日志展示
         viewModel.plants.observe(viewLifecycleOwner, Observer {
             if (it != null) {
                 adapter.submitList(it)
             }
         })
 
-        mainViewModel.nextPosition.observe(viewLifecycleOwner, Observer {
-            viewModel.handleNextInfo(it)
-        })
-
+        //界面数据
         mainViewModel.currentPosition.observe(viewLifecycleOwner, Observer {
             binding.current.text = (it + 1).toString()
-            viewModel.handleCurrentInfo(it)
+            viewModel.handleCurrentInfo(it).observe(viewLifecycleOwner, Observer { map ->
+                if (map != null) {
+                    binding.completedNum.text = map["totalCompletedPushUpNum"].toString() //已完成
+                    binding.surplusNum.text = map["totalSurplusPushUpNum"].toString() //剩余
+                    val nextData = map["nextData"] as SportData
+
+                    val dateFormat = SimpleDateFormat("MM-dd")
+                    val dataTime = dateFormat.parse(nextData.dateTime)
+                    val todayDate = Date()
+                    val today = dateFormat.parse(dateFormat.format(todayDate))
+                    val date = when ((dataTime.time - today.time) / (1000 * 3600 * 24)) {
+                        0L -> "今天"
+                        1L -> "明天"
+                        2L -> "后天"
+                        else -> nextData.dateTime
+                    }
+                    binding.nextSportTime.text = date //下次训练
+                    var total = 0
+                    val sport = StringBuilder()
+                    for (l in nextData.subData) {
+                        total += l.pushUpNum
+                        sport.append(l.pushUpNum).append("-")
+                    }
+                    binding.nextTotalNum.text = total.toString() //总共
+                    binding.nextSportData.text = sport.deleteCharAt(sport.length - 1).toString() //组
+                }
+            })
         })
 
+        //距目标时间
         viewModel.dateTimeOfLast.observe(viewLifecycleOwner, Observer {
             val days: String
-            if(it != ""){
-                val dataFormat = SimpleDateFormat("MM-dd")
-                val lastDataTime = dataFormat.parse(it)
+            days = if (it != "") {
+                val dateFormat = SimpleDateFormat("MM-dd")
+                val lastDataTime = dateFormat.parse(it)
                 val date = Date()
-                val currentDataTime = dataFormat.parse(dataFormat.format(date))
-                days = ((lastDataTime.time - currentDataTime.time) / (1000 * 3600 * 24)).toString()
-            }else{
-                days = ""
+                val currentDataTime = dateFormat.parse(dateFormat.format(date))
+                ((lastDataTime.time - currentDataTime.time) / (1000 * 3600 * 24)).toString()
+            } else {
+                ""
             }
-            binding.targetDays.text = days
+            binding.targetDays.text = days //距目标时间
         })
 
-        viewModel.completed.observe(viewLifecycleOwner, Observer {
-            binding.completedNum.text = it.toString()
-        })
-
-        viewModel.surplus.observe(viewLifecycleOwner, Observer {
-            binding.surplusNum.text = it.toString()
-        })
-
+        //总等级数量
         viewModel.getSportDataCount().observe(viewLifecycleOwner, Observer {
             binding.count.text = "/$it"
-        })
-
-        viewModel.nextSport.observe(viewLifecycleOwner, Observer {
-            Timber.e("时间 ${it.dateTime}")
-            binding.nextSportTime.text = it.dateTime
-            var total = 0
-            val sport = StringBuilder()
-            for (l in it.subData) {
-                total += l.pushUpNum
-                sport.append(l.pushUpNum).append("-")
-            }
-            binding.nextTotalNum.text = total.toString()
-            binding.nextSportData.text = sport.deleteCharAt(sport.length - 1).toString()
-
         })
     }
 }
