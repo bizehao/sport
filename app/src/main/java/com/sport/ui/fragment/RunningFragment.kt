@@ -57,6 +57,7 @@ class RunningFragment : Fragment() {
     private var timer: Timer? = null //计时器
     private lateinit var adapter: Adapter
 
+    @Volatile
     private var readyNum = 0
 
     private lateinit var listener:MyListener
@@ -99,8 +100,11 @@ class RunningFragment : Fragment() {
         binding.recyclerView.adapter = adapter
         binding.recyclerView.layoutManager = LinearLayoutManager(activity, LinearLayout.HORIZONTAL, false)
 
+        //跳过等待的时间
         binding.jumpTime.setOnClickListener {
-            readyNum = 0
+            if(readyNum > 5){
+                readyNum = 5
+            }
         }
 
         viewModel.getCurrentSport().observe(viewLifecycleOwner, Observer {

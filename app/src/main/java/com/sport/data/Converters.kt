@@ -21,6 +21,7 @@ import java.util.*
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
 import com.sport.data.table.SportData
+import com.sport.data.table.SportInfo
 
 /**
  * Type converters to allow Room to reference complex data types.
@@ -44,13 +45,24 @@ class Converters {
     }
 
     @TypeConverter
-    fun stringToList(value: String): List<SportData.SubData> {
+    fun stringToList1(value: String): List<SportData.SubData> {
         val listType = object : TypeToken<List<SportData.SubData>>() {}.type
         return Gson().fromJson(value, listType)
     }
 
     @TypeConverter
-    fun listToString(list: List<SportData.SubData>): String {
+    fun listToString1(list: List<SportData.SubData>): String {
+        return Gson().toJson(list)
+    }
+
+    @TypeConverter
+    fun stringToList2(value: String): List<SportInfo.SubInfo> {
+        val listType = object : TypeToken<List<SportInfo.SubInfo>>() {}.type
+        return Gson().fromJson(value, listType)
+    }
+
+    @TypeConverter
+    fun listToString2(list: List<SportInfo.SubInfo>): String {
         return Gson().toJson(list)
     }
 }

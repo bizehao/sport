@@ -17,10 +17,10 @@ import java.util.*
 @Dao
 interface SportInfoDao {
 
-    @Query("SELECT * FROM sportInfos")
+    @Query("SELECT * FROM sport_info")
     fun getSportInfos():List<SportInfo>
 
-    @Query("SELECT * FROM sportInfos WHERE time = :time")
+    @Query("SELECT * FROM sport_info WHERE time = :time")
     fun getSportInfoByTime(time:Date):SportInfo
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)

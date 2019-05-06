@@ -75,7 +75,7 @@ class IndexFragment : Fragment() {
                     val nextData = map["nextData"] as SportData
 
                     val dateFormat = SimpleDateFormat("MM-dd")
-                    val dataTime = dateFormat.parse(nextData.dateTime)
+                    val dataTime = if (nextData.dateTime == "") Date() else dateFormat.parse(nextData.dateTime)
                     val todayDate = Date()
                     val today = dateFormat.parse(dateFormat.format(todayDate))
                     val date = when ((dataTime.time - today.time) / (1000 * 3600 * 24)) {
