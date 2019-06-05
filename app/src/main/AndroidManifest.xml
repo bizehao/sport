@@ -7,6 +7,8 @@
     <dist:module dist:instant="true"/>
 
     <uses-permission android:name="android.permission.INTERNET"/><!-- 网络 -->
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" /><!-- 读 -->
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" /><!-- 写 -->
 
     <application
             android:name=".SportApplication"
@@ -40,6 +42,11 @@
         </activity>
         <activity
                 android:name=".ui.activity.TestActivity"
+                android:label="@string/title_activity_settings"
+                android:screenOrientation="portrait">
+        </activity>
+        <activity
+                android:name=".ui.activity.ClipImageActivity"
                 android:label="@string/title_activity_settings"
                 android:screenOrientation="portrait">
         </activity>

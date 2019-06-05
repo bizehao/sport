@@ -17,10 +17,17 @@
 
 package com.sport.utilities
 
-import android.annotation.SuppressLint
+import android.content.ContentResolver
+import android.content.ContentUris
 import android.content.Context
+import android.database.Cursor
+import android.net.Uri
+import android.provider.DocumentsContract
+import android.provider.MediaStore
 import android.text.TextUtils
+import android.util.TypedValue
 import android.widget.Toast
+import java.io.File
 import java.text.SimpleDateFormat
 import java.util.*
 
@@ -33,17 +40,112 @@ import java.util.*
  */
 object GlobalUtil {
 
+    //请求标志
+    val REQUEST_PICK_IMAGE = 1001
+    val REQUEST_PICK_VIDEO = 1002
+    val REQUEST_CROP_PHOTO = 1003
+
     private var TAG = "GlobalUtil"
 
     private var toast: Toast? = null
+
+    /**
+     * 将px值转换为dip或dp值，保证尺寸大小不变
+     *
+     * @param pxValue
+     * @param scale
+     * （DisplayMetrics类中属性density）
+     * @return
+     */
+    fun px2dp(context: Context, pxValue: Float): Float {
+        return pxValue / context.resources.displayMetrics.density
+    }
+
+    /**
+     * 将dip或dp值转换为px值，保证尺寸大小不变
+     *
+     * @param dipValue
+     * @param scale
+     * （DisplayMetrics类中属性density）
+     * @return
+     */
+    fun dp2px(context: Context, dipValue: Float): Float {
+        return TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, dipValue, context.resources.displayMetrics)
+    }
+
+    /**
+     * 将sp值转换为px值，保证尺寸大小不变
+     *
+     * @param dipValue
+     * @param scale
+     * （DisplayMetrics类中属性density）
+     * @return
+     */
+    fun sp2px(context: Context, spValue: Float): Float {
+        return TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_SP, spValue, context.resources.displayMetrics)
+    }
+
+    /**
+     * 将px值转换为sp值，保证尺寸大小不变
+     *
+     * @param dipValue
+     * @param scale
+     * （DisplayMetrics类中属性density）
+     * @return
+     */
+    fun px2sp(context: Context, pxValue: Float): Float {
+        return pxValue / context.resources.displayMetrics.scaledDensity
+    }
 
     /**
      * 获取当前应用程序的包名。
      *
      * @return 当前应用程序的包名。
      */
-    fun getAppPackage(context: Context): String{
+    fun getAppPackage(context: Context): String {
         return context.packageName
+    }
+
+    /**
+     * 获取图片或者视频的路径
+     */
+    fun getPathOfImgOrVideo(context: Context?, uri: Uri?): String? {
+        context ?: return null
+        uri ?: return null
+        val scheme = uri.scheme
+        var data: String? = null
+        if (scheme == null) {
+            data = uri.path
+        } else if (ContentResolver.SCHEME_FILE.equals(scheme, ignoreCase = true)) {
+            data = uri.path
+        } else if (ContentResolver.SCHEME_CONTENT.equals(scheme, ignoreCase = true)) {
+            val cursor =
+                context.contentResolver.query(uri, arrayOf(MediaStore.Images.ImageColumns.DATA), null, null, null)
+            if (null != cursor) {
+                if (cursor.moveToFirst()) {
+                    val index = cursor.getColumnIndex(MediaStore.Images.ImageColumns.DATA)
+                    if (index > -1) {
+                        data = cursor.getString(index)
+                    }
+                }
+                cursor.close()
+            }
+        }
+        return data
+    }
+
+    /**
+     * 检查文件是否存在
+     */
+    fun checkDirPath(dirPath: String): String {
+        if (TextUtils.isEmpty(dirPath)) {
+            return ""
+        }
+        val dir = File(dirPath)
+        if (!dir.exists()) {
+            dir.mkdirs()
+        }
+        return dirPath
     }
 
 
@@ -269,5 +371,34 @@ object GlobalUtil {
      * 判断当前版本是否是开源版本。
      */
     //fun isOpenSource() = GifFun.getPackageName() == "com.quxianggif.opensource"
+
+
+    /** @param context 上下文对象
+     * @param uri     图片的Uri
+     * @return 如果Uri对应的图片存在, 那么返回该图片的绝对路径, 否则返回null
+     */
+    fun getRealPathFromUriAbove(context: Context?, uri: Uri?): String? {
+        if (context == null || uri == null) return null
+        val scheme = uri.scheme
+        var data: String? = null
+        if (scheme == null) {
+            data = uri.path
+        } else if (ContentResolver.SCHEME_FILE.equals(scheme, ignoreCase = true)) {
+            data = uri.path
+        } else if (ContentResolver.SCHEME_CONTENT.equals(scheme, ignoreCase = true)) {
+            val cursor =
+                context.contentResolver.query(uri, arrayOf(MediaStore.Images.ImageColumns.DATA), null, null, null)
+            if (null != cursor) {
+                if (cursor.moveToFirst()) {
+                    val index = cursor.getColumnIndex(MediaStore.Images.ImageColumns.DATA)
+                    if (index > -1) {
+                        data = cursor.getString(index)
+                    }
+                }
+                cursor.close()
+            }
+        }
+        return data
+    }
 
 }

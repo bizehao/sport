@@ -22,10 +22,14 @@ android {
                 cppFlags "-std=c++11"
             }
         }
+     
+        ndk {
+            abiFilters 'x86', 'arm64-v8a'
+        }
     }
     externalNativeBuild {
         cmake {
-            path "src/main/cpp/CMakeLists.txt"
+            path "CMakeLists.txt"
             version "3.10.2"
         }
     }
@@ -55,7 +59,7 @@ dependencies {
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'androidx.test:runner:1.2.0-alpha03'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0-alpha03'
-    implementation 'com.google.code.gson:gson:2.8.5'
+    implementation "com.google.code.gson:gson:$rootProject.gson"
     implementation "androidx.lifecycle:lifecycle-extensions:$rootProject.lifecycleVersion"
     implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:$rootProject.lifecycleVersion"
     implementation "androidx.navigation:navigation-fragment-ktx:$rootProject.navigationVersion"
@@ -71,4 +75,6 @@ dependencies {
     implementation 'com.squareup.retrofit2:converter-gson:2.4.0'
     implementation 'com.squareup.retrofit2:converter-scalars:2.5.0'
     implementation 'androidx.preference:preference:1.1.0-alpha04'
+    //动画
+    implementation "com.airbnb.android:lottie:$rootProject.lottieVersion"
 }

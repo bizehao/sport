@@ -69,26 +69,27 @@
                             android:textColor="@color/white"
                             android:textSize="14sp"/>
 
-                    <Button
-                            android:id="@+id/fsm_lv"
+                    <!--<ProgressBar
                             android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_centerVertical="true"/>
+                            android:layout_height="20dp"
+                            android:layout_marginEnd="20dp"
+                            android:layout_marginStart="20dp"
+                            android:layout_centerInParent="true"
+                            style="?android:attr/progressBarStyleHorizontal"/>-->
 
-                    <!--<com.bzh.sportrecord.ui.widget.LineView
+                    <!--<com.sport.view.MyLineView
                             android:id="@+id/fsm_lv"
                             android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_centerVertical="true"
-                            android:background="@color/red"/>-->
+                            android:layout_height="20dp"
+                            android:layout_centerInParent="true"/>-->
 
                     <TextView
                             android:id="@+id/fsm_dateTitle"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_below="@id/fsm_lv"
                             android:layout_marginStart="5dp"
-                            android:layout_marginTop="5dp"
+                            android:layout_alignParentBottom="true"
+                            android:layout_marginBottom="5dp"
                             android:text="最近一次的日期:"
                             android:textColor="@color/white"/>
 
@@ -96,9 +97,9 @@
                             android:id="@+id/fsm_dateText"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_below="@id/fsm_lv"
                             android:layout_alignParentEnd="true"
-                            android:layout_marginTop="5dp"
+                            android:layout_alignParentBottom="true"
+                            android:layout_marginBottom="5dp"
                             android:layout_marginEnd="5dp"
                             android:text="2018-10-29 22:35"
                             android:textColor="@color/white"/>

@@ -2,8 +2,10 @@ package com.sport.ui.activity
 
 import android.app.Activity
 import android.content.Intent
+import android.content.pm.PackageManager
 import android.os.Bundle
 import android.view.WindowManager
+import android.widget.Toast
 import androidx.appcompat.widget.Toolbar
 import androidx.core.view.GravityCompat
 import androidx.drawerlayout.widget.DrawerLayout
@@ -15,6 +17,7 @@ import androidx.navigation.ui.*
 import com.sport.R
 import com.sport.common.ui.BaseActivity
 import com.sport.databinding.ActivityMainBinding
+import com.sport.utilities.GlobalUtil
 import com.sport.utilities.SharePreferencesUtil
 import com.sport.utilities.SportExecutors
 import com.sport.utilities.USER_CURRENT_ITEM

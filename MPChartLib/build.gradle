@@ -21,6 +21,10 @@ android {
     testOptions {
         unitTests.returnDefaultValues = true // this prevents "not mocked" error
     }
+    compileOptions {
+        sourceCompatibility = '1.8'
+        targetCompatibility = '1.8'
+    }
 }
 
 dependencies {
