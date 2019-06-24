@@ -67,7 +67,7 @@ class SportFragment : Fragment() {
     internal class Adapter(fm: FragmentManager) : FragmentPagerAdapter(fm) {
 
         private val mFragments = ArrayList<Fragment>()
-        private val mFragmentTitles = java.util.ArrayList<String>()
+        private val mFragmentTitles = ArrayList<String>()
 
         fun addFragment(fragment: Fragment, title: String) {
             mFragments.add(fragment)
